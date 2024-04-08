@@ -1,6 +1,9 @@
 import ComponentWrapper from '../wrapper';
 import { checkDefined, defineCustomComponent } from '../../utils/component';
 
+import './Row';
+import './Column';
+
 import './index.scss';
 
 class GridComponent extends ComponentWrapper {

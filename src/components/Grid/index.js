@@ -7,7 +7,7 @@ import './index.scss';
 
 class GridComponent extends HTMLElement {
   static getObservedAttributes() {
-    return ['columns'];
+    return ['columns', 'gap', 'classes'];
   }
 
   constructor() {
@@ -28,9 +28,19 @@ class GridComponent extends HTMLElement {
 
   render() {
     const columns = this.getAttribute('columns');
+    const gap = this.getAttribute('gap');
+    const classes = this.getAttribute('classes');
 
-    if (checkDefined(columns) && typeof (columns) === 'number') {
+    if (checkDefined(columns) && !Number.isNaN(columns)) {
       this.style.gridTemplateColumns = columns;
+    }
+
+    if (checkDefined(gap)) {
+      this.style.gap = gap;
+    }
+
+    if (checkDefined(classes)) {
+      this.classList.add(classes);
     }
   }
 }

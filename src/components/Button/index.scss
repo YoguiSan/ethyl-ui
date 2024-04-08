@@ -11,16 +11,20 @@ eui-button {
   height: fit-content;
   width: fit-content;
 
+  &:has(.fullWidth) {
+    &, .fullWidth {
+      width: 100%;
+    }
+  }
+
   button {
     border: none;
     border-radius: .5rem;
     color: white;
-    // height: 100%;
     font-family: 'Open Sans', sans-serif;
     font-size: 1rem;
     letter-spacing: .5px;
     padding: .5rem 1rem;
-    // width: 100%;
 
     &.primary {
       background: $primary;

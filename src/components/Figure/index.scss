@@ -1,0 +1,30 @@
+eui-figure {
+  position: relative;
+
+  * {
+    margin: 0;
+  }
+
+  figure {
+    &:has(.eui_figure__background_image) {
+      img {
+        z-index: 1;
+  
+        &:hover {
+          opacity: .8;
+        }
+      }
+  
+      .eui_figure__background_image {
+        margin: auto;
+        position: absolute;
+      }
+    }
+    
+    img {
+      transition: all .3s;
+      width: 100%;
+    }
+  }
+
+}

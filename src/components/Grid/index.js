@@ -37,6 +37,7 @@ class GridComponent extends HTMLElement {
 
     if (checkDefined(gap)) {
       this.style.gap = gap;
+      this.style.marginBottom = gap;
     }
 
     if (checkDefined(classes)) {

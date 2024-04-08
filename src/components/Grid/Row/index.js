@@ -1,41 +1,41 @@
-import ComponentWrapper from '../../wrapper';
 import { checkDefined, defineCustomComponent } from '../../../utils/component';
 
 import './index.scss';
 
-class RowComponent extends ComponentWrapper {
+class RowComponent extends HTMLElement {
+  static getObservedAttributes() {
+    return [
+      'rows',
+      'startRow',
+      'endRow',
+    ];
+  }
+
   constructor() {
     super();
     this.rendered = false;
   }
 
+  connectedCallback() {
+    if (!this.rendered) {
+      this.render();
+      this.rendered = true;
+    }
+  }
+
+  attributeChangedCallback() {
+    this.render();
+  }
+
   render() {
     const rows = this.getAttribute('rows');
-    const columns = this.getAttribute('columns');
     const startRow = this.getAttribute('startRow');
     const endRow = this.getAttribute('endRow');
-    const startColumn = this.getAttribute('startColumn');
-    const endColumn = this.getAttribute('endColumn');
-
-    if (checkDefined(columns) && typeof (columns) === 'number') {
-      this.style.gridTemplateColumns = columns;
-    }
 
     if (checkDefined(rows) && typeof (rows) === 'number') {
       this.style.gridRow = rows;
     }
   }
-
-  static getObservedAttributes() {
-    return [
-      'rows',
-      'columns',
-      'startRow',
-      'endRow',
-      'startColumn',
-      'endColumn',
-    ];
-  }
 }
 
-defineCustomComponent('column-component', RowComponent);
+defineCustomComponent('eui-row', RowComponent);

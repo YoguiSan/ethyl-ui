@@ -1,4 +1,3 @@
-import ComponentWrapper from '../wrapper';
 import { checkDefined, defineCustomComponent } from '../../utils/component';
 
 import './Row';
@@ -6,10 +5,25 @@ import './Column';
 
 import './index.scss';
 
-class GridComponent extends ComponentWrapper {
+class GridComponent extends HTMLElement {
+  static getObservedAttributes() {
+    return ['columns'];
+  }
+
   constructor() {
     super();
     this.rendered = false;
+  }
+
+  connectedCallback() {
+    if (!this.rendered) {
+      this.render();
+      this.rendered = true;
+    }
+  }
+
+  attributeChangedCallback() {
+    this.render();
   }
 
   render() {
@@ -19,10 +33,6 @@ class GridComponent extends ComponentWrapper {
       this.style.gridTemplateColumns = columns;
     }
   }
-
-  static getObservedAttributes() {
-    return ['columns'];
-  }
 }
 
-defineCustomComponent('grid-component', GridComponent);
+defineCustomComponent('eui-grid', GridComponent);

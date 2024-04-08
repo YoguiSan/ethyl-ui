@@ -1,0 +1,55 @@
+@import '../../utils/styles/Colors.scss';
+
+$confirmGreen: #00d115;
+$cancelRed: #d40404;
+$warningOrange: #d18100;
+$infoBlue: #63e9f2;
+$primary: #0f4480;
+$secondary: #666666;
+
+eui-button {
+  height: fit-content;
+  width: fit-content;
+
+  button {
+    border: none;
+    border-radius: .5rem;
+    color: white;
+    // height: 100%;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    letter-spacing: .5px;
+    padding: .5rem 1rem;
+    // width: 100%;
+
+    &.primary {
+      background: $primary;
+    }
+
+    &.secondary {
+      background: $secondary;
+    }
+
+    &.confirm {
+      background: $confirmGreen;
+    }
+
+    &.cancel {
+      background: $cancelRed;
+    }
+  
+    &.warning {
+      background: $warningOrange;
+    }
+
+    &.info {
+      background: $infoBlue;
+    }
+
+    &.outlined {
+      background: none;
+      border: solid 2px $secondary;
+      color: $secondary;
+    }
+  }
+}

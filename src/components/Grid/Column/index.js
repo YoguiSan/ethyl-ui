@@ -1,41 +1,44 @@
-import ComponentWrapper from '../../wrapper';
 import { checkDefined, defineCustomComponent } from '../../../utils/component';
 
 import './index.scss';
 
-class ColumnComponent extends ComponentWrapper {
+class ColumnComponent extends HTMLElement {
+  static getObservedAttributes() {
+    return [
+      'columns',
+      'startColumn',
+      'endColumn',
+    ];
+  }
+
   constructor() {
     super();
     this.rendered = false;
   }
 
+  connectedCallback() {
+    if (!this.rendered) {
+      this.render();
+      this.rendered = true;
+    }
+  }
+
+  attributeChangedCallback() {
+    this.render();
+  }
+
   render() {
-    const rows = this.getAttribute('rows');
     const columns = this.getAttribute('columns');
-    const startRow = this.getAttribute('startRow');
-    const endRow = this.getAttribute('endRow');
     const startColumn = this.getAttribute('startColumn');
     const endColumn = this.getAttribute('endColumn');
 
-    if (checkDefined(columns) && typeof (columns) === 'number') {
-      this.style.gridTemplateColumns = columns;
-    }
+    console.log(columns)
+    console.log(Number.isNaN(columns))
 
-    if (checkDefined(rows) && typeof (rows) === 'number') {
-      this.style.gridRow = rows;
+    if (checkDefined(columns) && !Number.isNaN(columns)) {
+      this.style.gridColumn = `span ${columns}`;
     }
-  }
-
-  static getObservedAttributes() {
-    return [
-      'rows',
-      'columns',
-      'startRow',
-      'endRow',
-      'startColumn',
-      'endColumn',
-    ];
   }
 }
 
-defineCustomComponent('column-component', ColumnComponent);
+defineCustomComponent('eui-column', ColumnComponent);

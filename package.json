@@ -14,9 +14,18 @@
     "@stencil-community/router": "^1.0.2",
     "@stencil/core": "2.13.0",
     "@types/jest": "^27.0.3",
+    "cz-conventional-changelog": "^3.3.0",
     "jest": "^27.4.5",
     "jest-cli": "^27.4.5",
     "puppeteer": "^10.0.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "pure-ui-react": "^2.1.6"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }

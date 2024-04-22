@@ -5,62 +5,117 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { MatchResults } from "@stencil-community/router";
+import { ColumnTypes } from "./components/eui-grid/eui-column/index.d";
+import { GridTypes } from "./components/eui-grid/Grid";
 export namespace Components {
-    interface AppHome {
+    interface EuiColumn {
+        "allowOverflow": ColumnTypes['allowOverflow'];
+        "condensed": ColumnTypes['condensed'];
+        "extraLarge": ColumnTypes['extraLarge'];
+        "extraSmall": ColumnTypes['extraSmall'];
+        "flexDirection": ColumnTypes['flexDirection'];
+        "justifyContent": ColumnTypes['justifyContent'];
+        "large": ColumnTypes['large'];
+        "medium": ColumnTypes['medium'];
+        "narrow": ColumnTypes['narrow'];
+        "noBoxSizing": ColumnTypes['noBoxSizing'];
+        "padding": ColumnTypes['padding'];
+        "paddingBottom": ColumnTypes['paddingBottom'];
+        "paddingLeft": ColumnTypes['paddingLeft'];
+        "paddingRight": ColumnTypes['paddingRight'];
+        "paddingTop": ColumnTypes['paddingTop'];
+        "small": ColumnTypes['small'];
     }
-    interface AppProfile {
-        "match": MatchResults;
+    interface EuiGrid {
     }
-    interface AppRoot {
+    interface EuiRow {
+        "allowOverflow": GridTypes['allowOverflow'];
+        "condensed": GridTypes['condensed'];
+        "flexDirection": GridTypes['flexDirection'];
+        "justifyContent": GridTypes['justifyContent'];
+        "narrow": GridTypes['narrow'];
+        "noBoxSizing": GridTypes['noBoxSizing'];
+        "overflow": GridTypes['overflow'];
+        "padding": GridTypes['padding'];
+        "paddingBottom": GridTypes['paddingBottom'];
+        "paddingLeft": GridTypes['paddingLeft'];
+        "paddingRight": GridTypes['paddingRight'];
+        "paddingTop": GridTypes['paddingTop'];
     }
 }
 declare global {
-    interface HTMLAppHomeElement extends Components.AppHome, HTMLStencilElement {
+    interface HTMLEuiColumnElement extends Components.EuiColumn, HTMLStencilElement {
     }
-    var HTMLAppHomeElement: {
-        prototype: HTMLAppHomeElement;
-        new (): HTMLAppHomeElement;
+    var HTMLEuiColumnElement: {
+        prototype: HTMLEuiColumnElement;
+        new (): HTMLEuiColumnElement;
     };
-    interface HTMLAppProfileElement extends Components.AppProfile, HTMLStencilElement {
+    interface HTMLEuiGridElement extends Components.EuiGrid, HTMLStencilElement {
     }
-    var HTMLAppProfileElement: {
-        prototype: HTMLAppProfileElement;
-        new (): HTMLAppProfileElement;
+    var HTMLEuiGridElement: {
+        prototype: HTMLEuiGridElement;
+        new (): HTMLEuiGridElement;
     };
-    interface HTMLAppRootElement extends Components.AppRoot, HTMLStencilElement {
+    interface HTMLEuiRowElement extends Components.EuiRow, HTMLStencilElement {
     }
-    var HTMLAppRootElement: {
-        prototype: HTMLAppRootElement;
-        new (): HTMLAppRootElement;
+    var HTMLEuiRowElement: {
+        prototype: HTMLEuiRowElement;
+        new (): HTMLEuiRowElement;
     };
     interface HTMLElementTagNameMap {
-        "app-home": HTMLAppHomeElement;
-        "app-profile": HTMLAppProfileElement;
-        "app-root": HTMLAppRootElement;
+        "eui-column": HTMLEuiColumnElement;
+        "eui-grid": HTMLEuiGridElement;
+        "eui-row": HTMLEuiRowElement;
     }
 }
 declare namespace LocalJSX {
-    interface AppHome {
+    interface EuiColumn {
+        "allowOverflow"?: ColumnTypes['allowOverflow'];
+        "condensed"?: ColumnTypes['condensed'];
+        "extraLarge"?: ColumnTypes['extraLarge'];
+        "extraSmall"?: ColumnTypes['extraSmall'];
+        "flexDirection"?: ColumnTypes['flexDirection'];
+        "justifyContent"?: ColumnTypes['justifyContent'];
+        "large"?: ColumnTypes['large'];
+        "medium"?: ColumnTypes['medium'];
+        "narrow"?: ColumnTypes['narrow'];
+        "noBoxSizing"?: ColumnTypes['noBoxSizing'];
+        "padding"?: ColumnTypes['padding'];
+        "paddingBottom"?: ColumnTypes['paddingBottom'];
+        "paddingLeft"?: ColumnTypes['paddingLeft'];
+        "paddingRight"?: ColumnTypes['paddingRight'];
+        "paddingTop"?: ColumnTypes['paddingTop'];
+        "small"?: ColumnTypes['small'];
     }
-    interface AppProfile {
-        "match"?: MatchResults;
+    interface EuiGrid {
     }
-    interface AppRoot {
+    interface EuiRow {
+        "allowOverflow"?: GridTypes['allowOverflow'];
+        "condensed"?: GridTypes['condensed'];
+        "flexDirection"?: GridTypes['flexDirection'];
+        "justifyContent"?: GridTypes['justifyContent'];
+        "narrow"?: GridTypes['narrow'];
+        "noBoxSizing"?: GridTypes['noBoxSizing'];
+        "overflow"?: GridTypes['overflow'];
+        "padding"?: GridTypes['padding'];
+        "paddingBottom"?: GridTypes['paddingBottom'];
+        "paddingLeft"?: GridTypes['paddingLeft'];
+        "paddingRight"?: GridTypes['paddingRight'];
+        "paddingTop"?: GridTypes['paddingTop'];
     }
     interface IntrinsicElements {
-        "app-home": AppHome;
-        "app-profile": AppProfile;
-        "app-root": AppRoot;
+        "eui-column": EuiColumn;
+        "eui-grid": EuiGrid;
+        "eui-row": EuiRow;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "app-home": LocalJSX.AppHome & JSXBase.HTMLAttributes<HTMLAppHomeElement>;
-            "app-profile": LocalJSX.AppProfile & JSXBase.HTMLAttributes<HTMLAppProfileElement>;
-            "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
+            "eui-column": LocalJSX.EuiColumn & JSXBase.HTMLAttributes<HTMLEuiColumnElement>;
+            "eui-grid": LocalJSX.EuiGrid & JSXBase.HTMLAttributes<HTMLEuiGridElement>;
+            "eui-row": LocalJSX.EuiRow & JSXBase.HTMLAttributes<HTMLEuiRowElement>;
         }
     }
 }

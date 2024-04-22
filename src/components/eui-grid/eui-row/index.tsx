@@ -1,4 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
+import { Component, Element, h, Prop } from '@stencil/core';
 import { Row } from 'pure-ui-react';
 import { GridTypes } from '../Grid';
 
@@ -8,7 +8,7 @@ import { GridTypes } from '../Grid';
   shadow: false,
 })
 export class EUIRow {
-  @Prop() children: GridTypes['children'];
+  @Element() element: unknown;
   @Prop() condensed: GridTypes['condensed'];
   @Prop() narrow: GridTypes['narrow'];
   @Prop() noBoxSizing: GridTypes['noBoxSizing'];
@@ -23,6 +23,9 @@ export class EUIRow {
   @Prop() flexDirection: GridTypes['flexDirection'];
 
   render() {
-    return <Row>{this.children}</Row>
+    return (
+    <Row>
+      {this.element}
+    </Row>);
   }
 }

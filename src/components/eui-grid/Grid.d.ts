@@ -1,5 +1,4 @@
 export interface GridTypes {
-  children?: Element | Element[];
   condensed?: boolean;
   narrow?: boolean;
   noBoxSizing?: boolean;

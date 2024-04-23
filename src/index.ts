@@ -1,2 +1,3 @@
-export { Components, JSX } from './components';
+// FIXME: fix this import error
+// export { Components, JSX } from './components';
 import '@stencil-community/router';

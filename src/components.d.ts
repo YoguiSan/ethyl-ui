@@ -5,117 +5,21 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { ColumnTypes } from "./components/eui-grid/eui-column/index.d";
-import { GridTypes } from "./components/eui-grid/Grid";
 export namespace Components {
-    interface EuiColumn {
-        "allowOverflow": ColumnTypes['allowOverflow'];
-        "condensed": ColumnTypes['condensed'];
-        "extraLarge": ColumnTypes['extraLarge'];
-        "extraSmall": ColumnTypes['extraSmall'];
-        "flexDirection": ColumnTypes['flexDirection'];
-        "justifyContent": ColumnTypes['justifyContent'];
-        "large": ColumnTypes['large'];
-        "medium": ColumnTypes['medium'];
-        "narrow": ColumnTypes['narrow'];
-        "noBoxSizing": ColumnTypes['noBoxSizing'];
-        "padding": ColumnTypes['padding'];
-        "paddingBottom": ColumnTypes['paddingBottom'];
-        "paddingLeft": ColumnTypes['paddingLeft'];
-        "paddingRight": ColumnTypes['paddingRight'];
-        "paddingTop": ColumnTypes['paddingTop'];
-        "small": ColumnTypes['small'];
-    }
-    interface EuiGrid {
-    }
-    interface EuiRow {
-        "allowOverflow": GridTypes['allowOverflow'];
-        "condensed": GridTypes['condensed'];
-        "flexDirection": GridTypes['flexDirection'];
-        "justifyContent": GridTypes['justifyContent'];
-        "narrow": GridTypes['narrow'];
-        "noBoxSizing": GridTypes['noBoxSizing'];
-        "overflow": GridTypes['overflow'];
-        "padding": GridTypes['padding'];
-        "paddingBottom": GridTypes['paddingBottom'];
-        "paddingLeft": GridTypes['paddingLeft'];
-        "paddingRight": GridTypes['paddingRight'];
-        "paddingTop": GridTypes['paddingTop'];
-    }
+
 }
 declare global {
-    interface HTMLEuiColumnElement extends Components.EuiColumn, HTMLStencilElement {
-    }
-    var HTMLEuiColumnElement: {
-        prototype: HTMLEuiColumnElement;
-        new (): HTMLEuiColumnElement;
-    };
-    interface HTMLEuiGridElement extends Components.EuiGrid, HTMLStencilElement {
-    }
-    var HTMLEuiGridElement: {
-        prototype: HTMLEuiGridElement;
-        new (): HTMLEuiGridElement;
-    };
-    interface HTMLEuiRowElement extends Components.EuiRow, HTMLStencilElement {
-    }
-    var HTMLEuiRowElement: {
-        prototype: HTMLEuiRowElement;
-        new (): HTMLEuiRowElement;
-    };
     interface HTMLElementTagNameMap {
-        "eui-column": HTMLEuiColumnElement;
-        "eui-grid": HTMLEuiGridElement;
-        "eui-row": HTMLEuiRowElement;
     }
 }
 declare namespace LocalJSX {
-    interface EuiColumn {
-        "allowOverflow"?: ColumnTypes['allowOverflow'];
-        "condensed"?: ColumnTypes['condensed'];
-        "extraLarge"?: ColumnTypes['extraLarge'];
-        "extraSmall"?: ColumnTypes['extraSmall'];
-        "flexDirection"?: ColumnTypes['flexDirection'];
-        "justifyContent"?: ColumnTypes['justifyContent'];
-        "large"?: ColumnTypes['large'];
-        "medium"?: ColumnTypes['medium'];
-        "narrow"?: ColumnTypes['narrow'];
-        "noBoxSizing"?: ColumnTypes['noBoxSizing'];
-        "padding"?: ColumnTypes['padding'];
-        "paddingBottom"?: ColumnTypes['paddingBottom'];
-        "paddingLeft"?: ColumnTypes['paddingLeft'];
-        "paddingRight"?: ColumnTypes['paddingRight'];
-        "paddingTop"?: ColumnTypes['paddingTop'];
-        "small"?: ColumnTypes['small'];
-    }
-    interface EuiGrid {
-    }
-    interface EuiRow {
-        "allowOverflow"?: GridTypes['allowOverflow'];
-        "condensed"?: GridTypes['condensed'];
-        "flexDirection"?: GridTypes['flexDirection'];
-        "justifyContent"?: GridTypes['justifyContent'];
-        "narrow"?: GridTypes['narrow'];
-        "noBoxSizing"?: GridTypes['noBoxSizing'];
-        "overflow"?: GridTypes['overflow'];
-        "padding"?: GridTypes['padding'];
-        "paddingBottom"?: GridTypes['paddingBottom'];
-        "paddingLeft"?: GridTypes['paddingLeft'];
-        "paddingRight"?: GridTypes['paddingRight'];
-        "paddingTop"?: GridTypes['paddingTop'];
-    }
     interface IntrinsicElements {
-        "eui-column": EuiColumn;
-        "eui-grid": EuiGrid;
-        "eui-row": EuiRow;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "eui-column": LocalJSX.EuiColumn & JSXBase.HTMLAttributes<HTMLEuiColumnElement>;
-            "eui-grid": LocalJSX.EuiGrid & JSXBase.HTMLAttributes<HTMLEuiGridElement>;
-            "eui-row": LocalJSX.EuiRow & JSXBase.HTMLAttributes<HTMLEuiRowElement>;
         }
     }
 }

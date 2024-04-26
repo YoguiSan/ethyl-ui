@@ -1,3 +1,4 @@
+import React from 'react';
 import { Component, Element, h, Prop } from '@stencil/core';
 import { Column } from 'pure-ui-react';
 import { ColumnTypes } from './index.d';

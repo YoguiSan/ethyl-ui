@@ -1,5 +1,5 @@
-import React from 'react';
-import { Component, h, Element } from '@stencil/core';
+// import React from 'react';
+import { Component, Element, Host, h } from '@stencil/core';
 import { Grid } from 'pure-ui-react';
 
 @Component({
@@ -12,7 +12,9 @@ export class EUIGrid {
 
   render() {
     return (
-      <Grid children={this.element}>{this.element}</Grid>
+      <Host>
+        <Grid children={this.element}>{this.element}</Grid>
+      </Host>
     );
   }
 }

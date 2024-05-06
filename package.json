@@ -10,6 +10,15 @@
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate"
   },
+  "files": [
+    "dist/"
+  ],
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "unpkg": "dist/ethyl-ui/ethyl-ui.esm.js",
   "devDependencies": {
     "@stencil-community/router": "^1.0.2",
     "@stencil/core": "2.13.0",
@@ -20,12 +29,12 @@
     "puppeteer": "^10.0.0"
   },
   "license": "MIT",
-  "dependencies": {
-    "pure-ui-react": "^2.1.6"
-  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
     }
+  },
+  "dependencies": {
+    "pure-ui-react": "file:D:/git/Pessoal/pure-ui"
   }
 }

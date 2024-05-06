@@ -1,0 +1,6 @@
+{
+  "name": "ethyl-ui/hydrate",
+  "description": "EthylUi component hydration app.",
+  "main": "index.js",
+  "types": "index.d.ts"
+}

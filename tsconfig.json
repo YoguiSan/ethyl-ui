@@ -17,12 +17,14 @@
     "jsxFactory": "h"
   },
   "include": [
-    "src/**/*.ts[x]"
+    "src"
   ],
   "exclude": [
     "node_modules",
     "./node_modules"
   ],
   "resolveJsonModule": true,
+  "esModuleInterop": true,
   "skipLibCheck": true,
+  "experimentalDecorators": true
 }

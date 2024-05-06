@@ -1,7 +1,7 @@
-import React from 'react';
-import { Component, Element, h, Prop } from '@stencil/core';
+// import React from 'react';
+import { Component, Element, h, Host, Prop } from '@stencil/core';
 import { Row } from 'pure-ui-react';
-import { GridTypes } from '../Grid';
+import { GridTypes } from '../eui-grid/index.d';
 
 @Component({
   tag: 'eui-row',
@@ -25,8 +25,11 @@ export class EUIRow {
 
   render() {
     return (
-    <Row>
-      {this.element}
-    </Row>);
+      <Host>
+        <Row>
+          {this.element}
+        </Row>
+      </Host>
+    );
   }
 }

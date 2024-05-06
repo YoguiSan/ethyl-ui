@@ -1,5 +1,5 @@
-import React from 'react';
-import { Component, Element, h, Prop } from '@stencil/core';
+// import React from 'react';
+import { Component, Element, h, Host, Prop } from '@stencil/core';
 import { Column } from 'pure-ui-react';
 import { ColumnTypes } from './index.d';
 
@@ -29,25 +29,27 @@ export class EUIColumn {
 
   render() {
     return (
-    <Column
-      children={this.element}
-      condensed={this.condensed}
-      narrow={this.narrow}
-      noBoxSizing={this.noBoxSizing}
-      padding={this.padding}
-      paddingBottom={this.paddingBottom}
-      paddingRight={this.paddingRight}
-      paddingTop={this.paddingTop}
-      paddingLeft={this.paddingLeft}
-      allowOverflow={this.allowOverflow}
-      justifyContent={this.justifyContent}
-      extraSmall={this.extraSmall}
-      small={this.small}
-      medium={this.medium}
-      large={this.large}
-      extraLarge={this.extraLarge}
-    >
-      {this.element}
-    </Column>);
+      <Host>
+        <Column
+          children={this.element}
+          condensed={this.condensed}
+          narrow={this.narrow}
+          noBoxSizing={this.noBoxSizing}
+          padding={this.padding}
+          paddingBottom={this.paddingBottom}
+          paddingRight={this.paddingRight}
+          paddingTop={this.paddingTop}
+          paddingLeft={this.paddingLeft}
+          allowOverflow={this.allowOverflow}
+          justifyContent={this.justifyContent}
+          extraSmall={this.extraSmall}
+          small={this.small}
+          medium={this.medium}
+          large={this.large}
+          extraLarge={this.extraLarge}
+        >
+          {this.element}
+        </Column>
+      </Host>);
   }
 }

@@ -1,5 +1,5 @@
-import React from 'react';
-import { Component, Prop } from '@stencil/core';
+// import React from 'react';
+import { Component, Host, Prop, h } from '@stencil/core';
 import { Button } from 'pure-ui-react';
 import { ButtonTypes } from './index.d';
 
@@ -9,7 +9,8 @@ import { ButtonTypes } from './index.d';
   shadow: true,
 })
 export class EUIColumn {
-  @Prop() classes: ButtonTypes['classes'];
+  @Prop() classes;
+  // @Prop() classes: ButtonTypes['classes'];
   @Prop() color: ButtonTypes['color'];
   @Prop() fontColor: ButtonTypes['fontColor'];
   @Prop() icon: ButtonTypes['icon'];
@@ -21,16 +22,19 @@ export class EUIColumn {
 
   render() {
     return (
-    <Button
-      classes={this.classes}
-      color={this.color}
-      fontColor={this.fontColor}
-      icon={this.icon}
-      onClick={this.onClick}
-      styles={this.styles}
-      text={this.text}
-      type={this.type}
-      variant={this.variant}
-    />);
+      <Host>
+        <Button
+          classes={this.classes}
+          color={this.color}
+          fontColor={this.fontColor}
+          icon={this.icon}
+          onClick={this.onClick}
+          styles={this.styles}
+          text={this.text}
+          type={this.type}
+          variant={this.variant}
+        />
+
+      </Host>);
   }
 }

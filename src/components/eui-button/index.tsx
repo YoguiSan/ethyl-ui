@@ -1,4 +1,3 @@
-// import React from 'react';
 import { Component, Host, Prop, h } from '@stencil/core';
 import { Button } from 'pure-ui-react';
 import { ButtonTypes } from './index.d';

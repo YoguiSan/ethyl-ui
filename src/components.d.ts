@@ -8,6 +8,9 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 import { ButtonTypes } from "./components/eui-button/index.d";
 import { ColumnTypes } from "./components/eui-column/index.d";
 import { GridTypes } from "./components/eui-grid/index.d";
+export { ButtonTypes } from "./components/eui-button/index.d";
+export { ColumnTypes } from "./components/eui-column/index.d";
+export { GridTypes } from "./components/eui-grid/index.d";
 export namespace Components {
     interface EuiButton {
         "classes": any;

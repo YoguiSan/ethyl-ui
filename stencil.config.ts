@@ -7,6 +7,16 @@ export const config: Config = {
   globalStyle: 'src/global/app.css',
   // globalScript: 'src/global/app.ts',
   // taskQueue: 'async',
+  commonjs: {
+    namedExports: {
+      'node_modules/pure-ui-react/dist/index.js': [
+        'Button',
+        'Grid',
+        'Row',
+        'Column',
+      ],
+    },
+  },
   outputTargets: [
     {
       type: 'dist',

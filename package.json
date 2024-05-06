@@ -21,7 +21,7 @@
   "unpkg": "dist/ethyl-ui/ethyl-ui.esm.js",
   "devDependencies": {
     "@stencil-community/router": "^1.0.2",
-    "@stencil/core": "2.13.0",
+    "@stencil/core": "^4.18.0",
     "@types/jest": "^27.0.3",
     "cz-conventional-changelog": "^3.3.0",
     "jest": "^27.4.5",

@@ -35,6 +35,6 @@
     }
   },
   "dependencies": {
-    "pure-ui-react": "file:D:/git/Pessoal/pure-ui"
+    "pure-ui-react": "file:../pure-ui"
   }
 }

@@ -1,0 +1,15 @@
+@import '../../assets/styles/breakpoints.scss';
+
+$gridTemplateColumns: var(--eui-grid-template-columns, 16);
+$gridColumns: var(--eui-grid-columns, 16);
+
+:host {
+  display: block;
+  grid-column: span $gridColumns;
+
+  &[container="true"] {
+    display: grid;
+    grid-template-columns: repeat($gridTemplateColumns, 1fr);
+    width: 100%;
+  }
+}

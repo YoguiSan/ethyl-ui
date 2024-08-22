@@ -22,8 +22,9 @@ export namespace Components {
     interface EuiGrid {
         "columns"?: number;
         "container"?: boolean;
-        "extraLarge"?: number;
-        "extraSmall"?: number;
+        "extralarge"?: number;
+        "extrasmall"?: number;
+        "gap"?: number;
         "large"?: number;
         "medium"?: number;
         "small"?: number;
@@ -64,8 +65,9 @@ declare namespace LocalJSX {
     interface EuiGrid {
         "columns"?: number;
         "container"?: boolean;
-        "extraLarge"?: number;
-        "extraSmall"?: number;
+        "extralarge"?: number;
+        "extrasmall"?: number;
+        "gap"?: number;
         "large"?: number;
         "medium"?: number;
         "small"?: number;

@@ -1,15 +1,31 @@
 @import '../../assets/styles/breakpoints.scss';
 
-$gridTemplateColumns: var(--eui-grid-template-columns, 16);
-$gridColumns: var(--eui-grid-columns, 16);
+@mixin newBreakpoint($breakpoint, $columns) {
+  @media all and (min-width: $breakpoint) {
+    grid-column: span var($columns);
+  }
+}
 
 :host {
+  --eui-grid-template-columns: 16;
+  --eui-grid-columns: 16;
+  --eui-grid-columns-extraSmall: 0;
+  --eui-grid-columns-small: 0;
+  --eui-grid-columns-medium: 0;
+  --eui-grid-columns-large: 0;
+  --eui-grid-columns-extraLarge: 0;
+
   display: block;
-  grid-column: span $gridColumns;
 
   &[container="true"] {
     display: grid;
-    grid-template-columns: repeat($gridTemplateColumns, 1fr);
+    grid-template-columns: repeat(var(--eui-grid-template-columns), 1fr);
     width: 100%;
   }
+
+  @include newBreakpoint($extraSmall, --eui-grid-columns-extraSmall);
+  @include newBreakpoint($small, --eui-grid-columns-small);
+  @include newBreakpoint($medium, --eui-grid-columns-medium);
+  @include newBreakpoint($large, --eui-grid-columns-large);
+  @include newBreakpoint($extraLarge, --eui-grid-columns-extraLarge);
 }

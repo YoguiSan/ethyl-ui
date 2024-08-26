@@ -1,4 +1,5 @@
 import { Component, Element, Host, Prop, h } from '@stencil/core';
+import EUIGridRowColumnType from './index.d';
 
 @Component({
   tag: 'eui-grid',
@@ -6,16 +7,21 @@ import { Component, Element, Host, Prop, h } from '@stencil/core';
   // shadow: true,
   scoped: true,
 })
-export class EUIGrid {
+export class EUIGrid implements EUIGridRowColumnType {
   @Element() element: HTMLElement;
-  @Prop() columns?: number;
-  @Prop() gap?: number;
-  @Prop() container?: boolean;
-  @Prop() extrasmall?: number;
-  @Prop() small?: number;
-  @Prop() medium?: number;
-  @Prop() large?: number;
-  @Prop() extralarge?: number;
+  @Prop() columns;
+  @Prop() gap;
+  @Prop() container;
+  @Prop() extrasmall;
+  @Prop() small;
+  @Prop() medium;
+  @Prop() large;
+  @Prop() extralarge;
+  @Prop() narrow;
+  @Prop() condensed;
+  @Prop() classes;
+  @Prop() flexDirection;
+  @Prop() justifyContent;
 
   render() {
     if (this.container) {
@@ -47,7 +53,19 @@ export class EUIGrid {
     }
 
     return (
-      <Host class={this.container && 'eui-grid-container'}>
+      <Host class={`
+      ${
+        this.container && 'eui-grid-container'
+      } ${
+        this.condensed && 'condensed'
+      } ${
+        this.narrow && 'narrow'
+      } ${
+        (this.classes
+          && Array.isArray(this.classes)
+            ? this.classes.join(' ')
+            : this.classes)
+      }`}>
         <slot />
       </Host>
     );

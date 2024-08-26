@@ -19,7 +19,7 @@ export class EUIButton implements EUIButtonType {
   @Prop() onClick;
   @Prop() styles;
   @Prop() classes;
-  @Prop() fullWidth: boolean;
+  @Prop() fullwidth;
 
   render() {
     const className:string = this.classes && Array.isArray(this.classes) ? this.classes.join(' ') : '';
@@ -57,7 +57,7 @@ export class EUIButton implements EUIButtonType {
         <button
           type={this.type}
           onClick={(event) => this.onClick(event)}
-          class={`${className} ${variant && `variant-${variant}`}`}
+          class={`${className} ${variant && `variant-${variant}`} ${this.fullwidth && 'fullWidth'}`}
         >
           {this.icon && this.icon}
           {this.text}

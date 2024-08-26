@@ -10,7 +10,7 @@ export namespace Components {
         "classes": any;
         "color": any;
         "fontColor": any;
-        "fullWidth": boolean;
+        "fullwidth": any;
         "icon": any;
         "onClick": any;
         "padding": any;
@@ -20,14 +20,19 @@ export namespace Components {
         "variant": any;
     }
     interface EuiGrid {
-        "columns"?: number;
-        "container"?: boolean;
-        "extralarge"?: number;
-        "extrasmall"?: number;
-        "gap"?: number;
-        "large"?: number;
-        "medium"?: number;
-        "small"?: number;
+        "classes": any;
+        "columns": any;
+        "condensed": any;
+        "container": any;
+        "extralarge": any;
+        "extrasmall": any;
+        "flexDirection": any;
+        "gap": any;
+        "justifyContent": any;
+        "large": any;
+        "medium": any;
+        "narrow": any;
+        "small": any;
     }
 }
 declare global {
@@ -53,7 +58,7 @@ declare namespace LocalJSX {
         "classes"?: any;
         "color"?: any;
         "fontColor"?: any;
-        "fullWidth"?: boolean;
+        "fullwidth"?: any;
         "icon"?: any;
         "onClick"?: any;
         "padding"?: any;
@@ -63,14 +68,19 @@ declare namespace LocalJSX {
         "variant"?: any;
     }
     interface EuiGrid {
-        "columns"?: number;
-        "container"?: boolean;
-        "extralarge"?: number;
-        "extrasmall"?: number;
-        "gap"?: number;
-        "large"?: number;
-        "medium"?: number;
-        "small"?: number;
+        "classes"?: any;
+        "columns"?: any;
+        "condensed"?: any;
+        "container"?: any;
+        "extralarge"?: any;
+        "extrasmall"?: any;
+        "flexDirection"?: any;
+        "gap"?: any;
+        "justifyContent"?: any;
+        "large"?: any;
+        "medium"?: any;
+        "narrow"?: any;
+        "small"?: any;
     }
     interface IntrinsicElements {
         "eui-button": EuiButton;

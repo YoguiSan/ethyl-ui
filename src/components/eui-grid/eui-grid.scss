@@ -1,21 +1,24 @@
 @import '../../assets/styles/breakpoints.scss';
 
 @mixin newBreakpoint($breakpoint, $columns) {
-  @media all and (min-width: $breakpoint) {
-    grid-column: span var($columns);
+  @if $columns != 0 {
+    @media all and (min-width: $breakpoint) {
+      grid-column: span var($columns);
+    }
   }
 }
 
 :host {
   --eui-grid-template-columns: 16;
   --eui-grid-columns: 16;
-  --eui-grid-columns-extraSmall: 0;
-  --eui-grid-columns-small: 0;
-  --eui-grid-columns-medium: 0;
-  --eui-grid-columns-large: 0;
-  --eui-grid-columns-extraLarge: 0;
+  --eui-grid-columns-extraSmall: false;
+  --eui-grid-columns-small: false;
+  --eui-grid-columns-medium: false;
+  --eui-grid-columns-large: false;
+  --eui-grid-columns-extraLarge: false;
 
   display: block;
+  padding: 1rem;
 
   &[container="true"] {
     display: grid;
@@ -23,9 +26,33 @@
     width: 100%;
   }
 
-  @include newBreakpoint($extraSmall, --eui-grid-columns-extraSmall);
-  @include newBreakpoint($small, --eui-grid-columns-small);
-  @include newBreakpoint($medium, --eui-grid-columns-medium);
-  @include newBreakpoint($large, --eui-grid-columns-large);
-  @include newBreakpoint($extraLarge, --eui-grid-columns-extraLarge);
+  &.narrow {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &.condensed {
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+
+  @if --eui-grid-columns-extraSmall {
+    @include newBreakpoint($extraSmall, --eui-grid-columns-extraSmall);
+  }
+
+  @if --eui-grid-columns-small {
+    @include newBreakpoint($small, --eui-grid-columns-small);
+  }
+
+  @if --eui-grid-columns-medium {
+    @include newBreakpoint($medium, --eui-grid-columns-medium);
+  }
+
+  @if --eui-grid-columns-large {
+    @include newBreakpoint($large, --eui-grid-columns-large);
+  }
+
+  @if --eui-grid-columns-extraLarge {
+    @include newBreakpoint($extraLarge, --eui-grid-columns-extraLarge);
+  }
 }

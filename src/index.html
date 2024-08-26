@@ -10,19 +10,37 @@
   </head>
   <body>
     <eui-grid container="true" columns="32">
-      <eui-grid extraSmall="16" small="8" medium="4" large="3" extraLarge="2">
+      <eui-grid extraSmall="16" small="8" medium="6" large="5" extraLarge="4">
         <eui-button text="Text" variant="text"></eui-button>
       </eui-grid>
-      <eui-grid extraSmall="8" small="4" medium="4" large="3" extraLarge="2">
+      <eui-grid extraSmall="8" small="4" medium="6" large="5" extraLarge="4">
         <eui-button text="Outlined" variant="outlined"></eui-button>
       </eui-grid>
-      <eui-button text="Primary" variant="primary"></eui-button>
-      <eui-button text="Secondary" variant="secondary"></eui-button>
-      <eui-button text="Success" variant="success"></eui-button>
-      <eui-button text="Info" variant="info"></eui-button>
-      <eui-button text="Warning" variant="warning"></eui-button>
-      <eui-button text="Error" variant="error"></eui-button>
-      <eui-button text="Fatal" variant="fatal"></eui-button>
+      <eui-grid container="true" columns="16">
+        <eui-grid extraSmall="16" small="8" medium="6" condensed="true">
+          <eui-button text="Primary" variant="primary"></eui-button>
+        </eui-grid>
+        <eui-grid extraSmall="16" small="8" medium="6" condensed="true">
+          <eui-button text="Secondary" variant="secondary"></eui-button>
+        </eui-grid>
+        <eui-grid extraSmall="16" small="8" medium="4" narrow="true">
+          <eui-button text="Success" variant="success"></eui-button>
+        </eui-grid>
+      </eui-grid>
+    </eui-grid>
+    <eui-grid container="true" columns="16">
+      <eui-grid extraSmall="16" small="8" medium="4">
+        <eui-button text="Info" variant="info"></eui-button>
+      </eui-grid>
+      <eui-grid extraSmall="16" small="8" medium="4">
+        <eui-button text="Warning" variant="warning"></eui-button>
+      </eui-grid>
+      <eui-grid extraSmall="16" small="8" medium="4">
+        <eui-button text="Error" variant="error"></eui-button>
+      </eui-grid>
+      <eui-grid extraSmall="16" small="8" medium="4">
+        <eui-button text="Fatal" variant="fatal"></eui-button>
+      </eui-grid>
     </eui-grid>
   </body>
 </html>

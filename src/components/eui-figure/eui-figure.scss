@@ -1,0 +1,21 @@
+@import '../../assets/styles/breakpoints.scss';
+
+@mixin newBreakpoint($breakpoint, $columns) {
+  @if $columns != 0 {
+    @media all and (min-width: $breakpoint) {
+      grid-column: span var($columns);
+    }
+  }
+}
+
+:host {
+  --eui-grid-template-columns: 16;
+  --eui-grid-columns: 16;
+  --eui-grid-columns-extraSmall: false;
+  --eui-grid-columns-small: false;
+  --eui-grid-columns-medium: false;
+  --eui-grid-columns-large: false;
+  --eui-grid-columns-extraLarge: false;
+
+
+}

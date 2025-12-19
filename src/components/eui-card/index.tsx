@@ -11,6 +11,7 @@ import type EUICardType from './index.d';
 export class EUICard implements EUICardType {
   @Prop() title;
   @Prop() icon;
+  @Prop() iconBgColor;
   @Prop() children;
 
   render() {
@@ -18,6 +19,7 @@ export class EUICard implements EUICardType {
     const {
       title,
       icon,
+      iconBgColor,
       children,
     } = this;
 
@@ -26,7 +28,7 @@ export class EUICard implements EUICardType {
         {
           (title || icon) && (
             <div class="eui-card-header">
-              {icon && <div class="eui-card-icon">{icon}</div>}
+              {icon && <div class="eui-card-icon" style={{ backgroundColor: iconBgColor }}>{icon}</div>}
               {title && <div class="eui-card-title">{title}</div>}
             </div>
           )

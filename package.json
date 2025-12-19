@@ -13,14 +13,8 @@
       "import": "./dist/ethyl-ui/ethyl-ui.esm.js",
       "require": "./dist/ethyl-ui/ethyl-ui.cjs.js"
     },
-    "./my-component": {
-      "import": "./dist/components/my-component.js",
-      "types": "./dist/components/my-component.d.ts"
-    },
-    "./eui-button": {
-      "import": "./dist/components/eui-button.js",
-      "types": "./dist/components/eui-button.d.ts"
-    },
+    "./dist/components/*": "./dist/components/*.js",
+    "./react/*": "./dist/react-wrappers/*.js",
     "./loader": {
       "import": "./loader/index.js",
       "require": "./loader/index.cjs",

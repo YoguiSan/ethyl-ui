@@ -1,0 +1,21 @@
+@import '../../assets/styles/colors.scss';
+@import '../../assets/styles/fonts.scss';
+
+:host {
+  height: fit-content;
+
+  .eui-card-header {
+    display: flex;
+
+    .eui-card-icon {
+      display: flex;
+      width: 3rem;
+
+      svg {
+        height: 1.5rem;
+        margin: auto;
+        width: 1.5rem;
+      }
+    }
+  }
+}

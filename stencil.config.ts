@@ -1,18 +1,20 @@
 import { Config } from '@stencil/core';
 import babel from '@rollup/plugin-babel';
+import { reactOutputTarget } from '@stencil/react-output-target';
 import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: 'ethyl-ui',
   outputTargets: [
-    {
-      type: 'dist',
-      esmLoaderPath: '../loader',
-    },
+    reactOutputTarget({ outDir: 'dist/react-wrappers/' }),
     {
       type: 'dist-custom-elements',
       customElementsExportBehavior: 'auto-define-custom-elements',
       externalRuntime: false,
+    },
+    {
+      type: 'dist',
+      esmLoaderPath: '../loader',
     },
     {
       type: 'docs-readme',

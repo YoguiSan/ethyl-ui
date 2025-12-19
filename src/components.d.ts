@@ -23,6 +23,9 @@ export namespace Components {
         "alt": any;
         "backgroundImage": any;
         "caption": any;
+        /**
+          * @default ''
+         */
         "classes": string;
         "src": any;
         "url": any;
@@ -86,6 +89,9 @@ declare namespace LocalJSX {
         "alt"?: any;
         "backgroundImage"?: any;
         "caption"?: any;
+        /**
+          * @default ''
+         */
         "classes"?: string;
         "src"?: any;
         "url"?: any;

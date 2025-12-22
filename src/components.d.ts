@@ -23,7 +23,6 @@ export namespace Components {
         "variant": any;
     }
     interface EuiCard {
-        "children": any;
         "iconBgColor": any;
         "title": any;
     }
@@ -104,7 +103,6 @@ declare namespace LocalJSX {
         "variant"?: any;
     }
     interface EuiCard {
-        "children"?: any;
         "iconBgColor"?: any;
         "title"?: any;
     }

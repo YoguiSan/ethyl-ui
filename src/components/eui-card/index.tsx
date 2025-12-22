@@ -11,14 +11,12 @@ import type EUICardType from './index.d';
 export class EUICard implements EUICardType {
   @Prop() title;
   @Prop() iconBgColor;
-  @Prop() children;
 
   render() {
 
     const {
       title,
       iconBgColor,
-      children,
     } = this;
 
     return (
@@ -32,17 +30,13 @@ export class EUICard implements EUICardType {
               >
                 <slot name="icon" />
               </div>
-              {title && <div class="eui-card-title">{title}</div>}
+              {title && <p class="eui-card-title">{title}</p>}
             </div>
           )
         }
-        {
-          children && (
-            <div class="eui-card-body">
-              {children}
-            </div>
-          )
-        }
+        <div class="eui-card-body">
+          <slot name="body" />
+        </div>
       </Host>
     );
   }

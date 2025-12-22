@@ -39,10 +39,10 @@ var EUIGrid = /*@__PURE__*/proxyCustomElement(/*#__PURE__*/function (_HTMLElemen
         this.element.style.setProperty('--eui-grid-columns-extraLarge', "".concat(this.extralarge));
       }
       return h(Host, {
-        key: '2c6b5060632b9a72ffa8e8a62f578e07763b3d8c',
+        key: '5cc120e9509c7025ca5d0cd669109f11fbc6ce87',
         "class": "\n      ".concat(this.container && 'eui-grid-container', " ").concat(this.condensed && 'condensed', " ").concat(this.narrow && 'narrow', " ").concat(this.classes && Array.isArray(this.classes) ? this.classes.join(' ') : this.classes)
       }, h("slot", {
-        key: 'ae395a939de40a431deba27ac3a7e17905878a1e'
+        key: '4331292313bbceb27ecb61ef46929f74b0dd0e61'
       }));
     }
   }, {

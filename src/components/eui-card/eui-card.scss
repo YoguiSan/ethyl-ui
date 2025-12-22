@@ -1,26 +1,48 @@
-@use '../../assets/styles/colors.scss';
-@use '../../assets/styles/fonts.scss';
+@use '../../assets/styles/colors.scss' as Colors;
+@use '../../assets/styles/fonts.scss' as Fonts;
 
 :host {
+  border: solid 1px Colors.$gray;
   border-radius: 1.025rem;
   box-shadow: 0 0 #000;
+  display: grid;
+  font-family: Fonts.$default;
+  grid-template-columns: repeat(16, 1fr);
   height: fit-content;
+  padding: 1rem;
 
   .eui-card-header {
     display: flex;
+    grid-column: 1 / span 15;
+    height: 3rem;
 
     .eui-card-icon {
-      slot[name="icon"] {
-        border-radius: 10rem; 
-        display: flex;
-        width: 3rem;
-  
-        img, svg {
-          height: 1.5rem;
-          margin: auto;
-          width: 1.5rem;
-        }
+      display: flex;
+      border-radius: 10rem; 
+      display: flex;
+      height: 3rem;
+      justify-content: center;
+      margin-right: 1rem;
+      width: 3rem;
+
+      // FIXME: styles are not applying to the icon
+      * {
+        height: 1.5rem;
+        width: 1.5rem;
+        margin: auto;
       }
     }
+
+    .eui-card-title {
+      display: block;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: auto 0;
+    }
+  }
+
+  .eui-card-body {
+    grid-column: 2 / span 15;
+    padding-left: 1rem;
   }
 }

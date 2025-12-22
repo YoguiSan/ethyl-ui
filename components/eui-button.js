@@ -26,11 +26,11 @@ var EUIButton = /*@__PURE__*/proxyCustomElement(/*#__PURE__*/function (_HTMLElem
         color = _this$color === void 0 ? 'none' : _this$color,
         fontColor = this.fontColor;
       return h(Host, {
-        key: '9e1dca8c9df36dd1fe176a94939649355395cfcf'
+        key: '57ad3caf1331d6dd51384e4bf01b33d652616bf8'
       }, h("style", {
-        key: 'a6a6327114cff6e1e3c4079fff5505bc16c962b3'
+        key: '516d18987d7dfdd092bad065e9eca397787cd67b'
       }, "\n            ".concat(padding && (_typeof(padding === 'number') ? "".concat(padding, "px;") : "".concat(padding, ";")) || '', "\n            ").concat(color ? "background: ".concat(color, ";") : '', "\n            ").concat(fontColor ? "color: ".concat(fontColor, ";") : '', "\n          ")), h("button", {
-        key: '995a262d9067ab28001941ac663186605b0db8f3',
+        key: 'ac042902e4cf7d4e6977c04f1b575ee1c296bc2d',
         type: this.type,
         onClick: function onClick(event) {
           return _this2.onClick(event);

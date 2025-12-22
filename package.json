@@ -31,12 +31,13 @@
   ],
   "scripts": {
     "build": "stencil build",
-    "start": "stencil build --dev --watch --serve",
+    "start": "stencil build --watch --serve",
     "dev": "npm start",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "storybook": "npm run build && storybook dev -p 6006",
+    "storybook": "clear && concurrently \"npm start\" \"npm run storybook:watch\"",
+    "storybook:watch": "npx storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
   "devDependencies": {
@@ -58,6 +59,7 @@
     "@types/jest": "^29.5.6",
     "@types/node": "^16.18.11",
     "commitizen": "^4.3.1",
+    "concurrently": "^9.2.1",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^9.9.0",
     "eslint-plugin-react": "^7.35.0",

@@ -8,7 +8,10 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface EuiButton {
         "classes": any;
-        "color": any;
+        /**
+          * @default 'lightgray'
+         */
+        "color": string;
         "fontColor": any;
         "fullwidth": any;
         "icon": any;
@@ -19,10 +22,18 @@ export namespace Components {
         "type": any;
         "variant": any;
     }
+    interface EuiCard {
+        "children": any;
+        "iconBgColor": any;
+        "title": any;
+    }
     interface EuiFigure {
         "alt": any;
         "backgroundImage": any;
         "caption": any;
+        /**
+          * @default ''
+         */
         "classes": string;
         "src": any;
         "url": any;
@@ -50,6 +61,12 @@ declare global {
         prototype: HTMLEuiButtonElement;
         new (): HTMLEuiButtonElement;
     };
+    interface HTMLEuiCardElement extends Components.EuiCard, HTMLStencilElement {
+    }
+    var HTMLEuiCardElement: {
+        prototype: HTMLEuiCardElement;
+        new (): HTMLEuiCardElement;
+    };
     interface HTMLEuiFigureElement extends Components.EuiFigure, HTMLStencilElement {
     }
     var HTMLEuiFigureElement: {
@@ -64,6 +81,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "eui-button": HTMLEuiButtonElement;
+        "eui-card": HTMLEuiCardElement;
         "eui-figure": HTMLEuiFigureElement;
         "eui-grid": HTMLEuiGridElement;
     }
@@ -71,7 +89,10 @@ declare global {
 declare namespace LocalJSX {
     interface EuiButton {
         "classes"?: any;
-        "color"?: any;
+        /**
+          * @default 'lightgray'
+         */
+        "color"?: string;
         "fontColor"?: any;
         "fullwidth"?: any;
         "icon"?: any;
@@ -82,10 +103,18 @@ declare namespace LocalJSX {
         "type"?: any;
         "variant"?: any;
     }
+    interface EuiCard {
+        "children"?: any;
+        "iconBgColor"?: any;
+        "title"?: any;
+    }
     interface EuiFigure {
         "alt"?: any;
         "backgroundImage"?: any;
         "caption"?: any;
+        /**
+          * @default ''
+         */
         "classes"?: string;
         "src"?: any;
         "url"?: any;
@@ -107,6 +136,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "eui-button": EuiButton;
+        "eui-card": EuiCard;
         "eui-figure": EuiFigure;
         "eui-grid": EuiGrid;
     }
@@ -116,6 +146,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "eui-button": LocalJSX.EuiButton & JSXBase.HTMLAttributes<HTMLEuiButtonElement>;
+            "eui-card": LocalJSX.EuiCard & JSXBase.HTMLAttributes<HTMLEuiCardElement>;
             "eui-figure": LocalJSX.EuiFigure & JSXBase.HTMLAttributes<HTMLEuiFigureElement>;
             "eui-grid": LocalJSX.EuiGrid & JSXBase.HTMLAttributes<HTMLEuiGridElement>;
         }

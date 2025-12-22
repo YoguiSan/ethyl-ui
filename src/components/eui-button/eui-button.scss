@@ -1,10 +1,11 @@
-@import '../../assets/styles/colors.scss';
+@use '../../assets/styles/colors.scss' as Colors;
 @import '../../assets/styles/fonts.scss';
 
 :host {
   height: fit-content;
 
   button {
+    background: none;
     border: none;
     border-radius: .4rem;
     cursor: pointer;
@@ -21,7 +22,7 @@
       border: none;
 
       &:hover {
-        background: $lightestGrayHover;
+        background: Colors.$lightestGrayHover;
       }
     }
 
@@ -46,35 +47,35 @@
     }
 
     &.variant-primary {
-      background: $primary;
+      background: Colors.$primary;
       color: white;
     }
 
     &.variant-secondary {
-      background: $secondary;
+      background: Colors.$secondary;
       color: white;
     }
 
     &.variant-success {
-      background: $success;
+      background: Colors.$success;
       color: white;
     }
 
     &.variant-info {
-      background: $info;
+      background: Colors.$info;
     }
 
     &.variant-warning {
-      background: $warning;
+      background: Colors.$warning;
     }
 
     &.variant-error {
-      background: $error;
+      background: Colors.$error;
       color: white;
     }
 
     &.variant-fatal {
-      background: $fatal;
+      background: Colors.$fatal;
       color: white;
     }
 

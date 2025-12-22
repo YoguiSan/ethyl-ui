@@ -1,0 +1,26 @@
+@use '../../assets/styles/colors.scss';
+@use '../../assets/styles/fonts.scss';
+
+:host {
+  border-radius: 1.025rem;
+  box-shadow: 0 0 #000;
+  height: fit-content;
+
+  .eui-card-header {
+    display: flex;
+
+    .eui-card-icon {
+      slot[name="icon"] {
+        border-radius: 10rem; 
+        display: flex;
+        width: 3rem;
+  
+        img, svg {
+          height: 1.5rem;
+          margin: auto;
+          width: 1.5rem;
+        }
+      }
+    }
+  }
+}

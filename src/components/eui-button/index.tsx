@@ -12,7 +12,7 @@ export class EUIButton implements EUIButtonType {
   @Prop() variant;
   @Prop() padding;
   @Prop() type;
-  @Prop() color;
+  @Prop() color = 'lightgray';
   @Prop() text;
   @Prop() icon;
   @Prop() fontColor;
@@ -47,7 +47,7 @@ export class EUIButton implements EUIButtonType {
             || ''
             }
             ${
-              color ? `background-color: ${color};` : ''
+              color  ? `background: ${color};`: ''
             }
             ${
               fontColor ? `color: ${fontColor};` : ''

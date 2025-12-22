@@ -1,18 +1,26 @@
 import { Config } from '@stencil/core';
 import babel from '@rollup/plugin-babel';
+import { reactOutputTarget } from '@stencil/react-output-target';
 import { sass } from '@stencil/sass';
 
 export const config: Config = {
   namespace: 'ethyl-ui',
   outputTargets: [
+    reactOutputTarget({
+      outDir: 'dist/react-wrappers',
+      customElementsDir: 'components',  // MUST match above dir
+      stencilPackageName: 'ethyl-ui',
+      includeImportCustomElements: true,
+    }),
+    {
+      type: 'dist-custom-elements',
+      dir: 'components',  // Creates dist/components/eui-button.js
+      generateDistribution: true,
+      customElementsExportBehavior: 'single-export-module',
+    },
     {
       type: 'dist',
       esmLoaderPath: '../loader',
-    },
-    {
-      type: 'dist-custom-elements',
-      customElementsExportBehavior: 'auto-define-custom-elements',
-      externalRuntime: false,
     },
     {
       type: 'docs-readme',

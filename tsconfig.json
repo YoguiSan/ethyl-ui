@@ -24,4 +24,9 @@
   "exclude": [
     "node_modules"
   ],
+  "baseUrl": ".",
+  "paths": {
+    "ethyl-ui/*": ["dist/*"],
+    "ethyl-ui/components/*": ["dist/components/*.js"]
+  }
 }

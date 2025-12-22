@@ -1,7 +1,17 @@
 import { _ as _inherits, a as _createClass, c as _classCallCheck, d as _callSuper } from './_rollupPluginBabelHelpers.js';
 import { proxyCustomElement, transformTag, h, Host, HTMLElement } from '@stencil/core/internal/client';
 
-const euiGridCss = () => `.sc-eui-grid-h{--eui-grid-template-columns:16;--eui-grid-columns:16;--eui-grid-columns-extraSmall:false;--eui-grid-columns-small:false;--eui-grid-columns-medium:false;--eui-grid-columns-large:false;--eui-grid-columns-extraLarge:false;display:block;padding:1rem}[container=true].sc-eui-grid-h{display:grid;grid-template-columns:repeat(var(--eui-grid-template-columns), 1fr);width:100%}.narrow.sc-eui-grid-h{padding-left:0;padding-right:0}.condensed.sc-eui-grid-h{padding-bottom:0;padding-top:0}@media all and (min-width: 0px){.sc-eui-grid-h{grid-column:span var(--eui-grid-columns-extraSmall)}}@media all and (min-width: 321px){.sc-eui-grid-h{grid-column:span var(--eui-grid-columns-small)}}@media all and (min-width: 481px){.sc-eui-grid-h{grid-column:span var(--eui-grid-columns-medium)}}@media all and (min-width: 769px){.sc-eui-grid-h{grid-column:span var(--eui-grid-columns-large)}}@media all and (min-width: 1025px){.sc-eui-grid-h{grid-column:span var(--eui-grid-columns-extraLarge)}}`;
+const extraSmall = 0;
+const small = 321;
+const medium = 481;
+const large = 769;
+var Breakpoints = {
+	extraSmall: extraSmall,
+	small: small,
+	medium: medium,
+	large: large};
+
+const euiGridCss = () => `.sc-eui-grid-h{display:block;padding:1rem}[container=true].sc-eui-grid-h{display:grid;width:100%}.narrow.sc-eui-grid-h{padding-left:0;padding-right:0}.condensed.sc-eui-grid-h{padding-bottom:0;padding-top:0}`;
 
 var EUIGrid = /*@__PURE__*/proxyCustomElement(/*#__PURE__*/function (_HTMLElement) {
   function EUIGrid(registerHost) {
@@ -15,34 +25,46 @@ var EUIGrid = /*@__PURE__*/proxyCustomElement(/*#__PURE__*/function (_HTMLElemen
   }
   _inherits(EUIGrid, _HTMLElement);
   return _createClass(EUIGrid, [{
+    key: "handleResize",
+    value: function handleResize() {
+      var _window = window,
+        width = _window.innerWidth;
+      var columns = 0;
+      if (width <= Breakpoints.extraSmall) {
+        columns = this.extrasmall || 16;
+      } else if (width <= Breakpoints.small) {
+        columns = this.small || this.extrasmall || 16;
+      } else if (width <= Breakpoints.medium) {
+        columns = this.medium || this.small || this.extrasmall || 16;
+      } else if (width <= Breakpoints.large) {
+        columns = this.large || this.medium || this.small || this.extrasmall || 16;
+      } else {
+        columns = this.extralarge || this.large || this.medium || this.small || this.extrasmall || 16;
+      }
+      this.element.style.gridColumn = "span ".concat(columns || 16);
+    }
+  }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+      if (!this.rendered) {
+        this.handleResize();
+        window.addEventListener('resize', function () {
+          return _this2.handleResize();
+        });
+        this.rendered = true;
+      }
       if (this.container) {
-        this.element.style.setProperty('--eui-grid-template-columns', "".concat(this.columns));
-      }
-      if (this.container && this.gap) {
-        this.element.style.setProperty('--eui-grid-template-gap', "".concat(this.gap));
-      }
-      if (this.extrasmall) {
-        this.element.style.setProperty('--eui-grid-columns-extraSmall', "".concat(this.extrasmall));
-      }
-      if (this.small) {
-        this.element.style.setProperty('--eui-grid-columns-small', "".concat(this.small));
-      }
-      if (this.medium) {
-        this.element.style.setProperty('--eui-grid-columns-medium', "".concat(this.medium));
-      }
-      if (this.large) {
-        this.element.style.setProperty('--eui-grid-columns-large', "".concat(this.large));
-      }
-      if (this.extralarge) {
-        this.element.style.setProperty('--eui-grid-columns-extraLarge', "".concat(this.extralarge));
+        this.element.style.gridTemplateColumns = "repeat(".concat(this.columns || 16, ", 1fr)");
+        if (this.gap) {
+          this.element.style.gap = this.gap ? "".concat(this.gap, "px") : '2rem';
+        }
       }
       return h(Host, {
-        key: '5cc120e9509c7025ca5d0cd669109f11fbc6ce87',
+        key: 'b4dc11280a7676523d8ea1ddb1db4acbcc65daba',
         "class": "\n      ".concat(this.container && 'eui-grid-container', " ").concat(this.condensed && 'condensed', " ").concat(this.narrow && 'narrow', " ").concat(this.classes && Array.isArray(this.classes) ? this.classes.join(' ') : this.classes)
       }, h("slot", {
-        key: '4331292313bbceb27ecb61ef46929f74b0dd0e61'
+        key: 'bfdb78907762192f0532af0ba50149ab3c67eb96'
       }));
     }
   }, {
@@ -69,7 +91,9 @@ var EUIGrid = /*@__PURE__*/proxyCustomElement(/*#__PURE__*/function (_HTMLElemen
   "condensed": [8],
   "classes": [8],
   "flexDirection": [8, "flex-direction"],
-  "justifyContent": [8, "justify-content"]
+  "justifyContent": [8, "justify-content"],
+  "resizeHandler": [16],
+  "rendered": [4]
 }]);
 function defineCustomElement$1() {
   if (typeof customElements === "undefined") {

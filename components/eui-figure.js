@@ -19,16 +19,16 @@ var EUIFigure = /*@__PURE__*/proxyCustomElement(/*#__PURE__*/function (_HTMLElem
     key: "render",
     value: function render() {
       var Component = h(Host, {
-        key: '7088561a347b291cbe12f2b7a3647d461ca8cffc',
+        key: '0367f16bfab322bcec33f0e0da16f51b0c40a9f3',
         "class": this.classes
       }, h("figure", {
-        key: '5e9fc2e7224026d03095f987f164e9fc61fdbd7a'
+        key: '93098bb4e9f902f6da0fd4abfb119ea1de31c620'
       }, h("img", {
-        key: 'b02c14438e736d54331ba9d89806ec03d8fdcaa8',
+        key: '727b602b9192707afbb4dd1500a95c8e2f49ce17',
         src: this.src,
         alt: this.alt
       }), this.caption && h("figcaption", {
-        key: '98588e799b7fd92e68734a6d8d9a8d5644a73400'
+        key: '3aa3e322b0b660cb70c3ad5ba120e560d24d0f37'
       }, this.caption)));
       return this.url ? h("a", {
         href: this.url

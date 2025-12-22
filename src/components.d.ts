@@ -50,6 +50,8 @@ export namespace Components {
         "large": any;
         "medium": any;
         "narrow": any;
+        "rendered": boolean;
+        "resizeHandler"?: void;
         "small": any;
     }
 }
@@ -130,6 +132,8 @@ declare namespace LocalJSX {
         "large"?: any;
         "medium"?: any;
         "narrow"?: any;
+        "rendered"?: boolean;
+        "resizeHandler"?: void;
         "small"?: any;
     }
     interface IntrinsicElements {

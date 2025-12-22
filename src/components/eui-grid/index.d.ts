@@ -9,6 +9,7 @@ export interface GridStyleType {
     'space-evenly' |
     'initial' |
     'inherit'
+  resizeHandler?: void;
 }
 
 export default interface EUIGridRowColumnType extends GridStyleType {

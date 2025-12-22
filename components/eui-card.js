@@ -20,27 +20,27 @@ var EUICard = /*@__PURE__*/proxyCustomElement(/*#__PURE__*/function (_HTMLElemen
       var title = this.title,
         iconBgColor = this.iconBgColor;
       return h(Host, {
-        key: '9e65b942a74f5e38a09bd7b817dca8e737d0d946'
+        key: '9139608ba2b408accf68475a326c28ca600ab601'
       }, title && h("div", {
-        key: 'd1ce6c5031de70067b9af5db755b130a181ef35f',
+        key: '678fbecc9d65ccaf5ef3050594dbcd22de8db046',
         "class": "eui-card-header"
       }, h("div", {
-        key: '1fb1c082640702a9650d566e8ccb690ada9a2509',
+        key: 'a37bc90b8897b057c19e1fff4ebad4badec90739',
         "class": "eui-card-icon",
         style: {
           backgroundColor: iconBgColor
         }
       }, h("slot", {
-        key: 'cbe113a2b5d60b5ea53cc3a3a1ac2e45f7c34a37',
+        key: 'd895e7e4ea7ecf284cb0496986a00f7cfcee4873',
         name: "icon"
       })), title && h("p", {
-        key: 'd49c7bbae350f05bf827c98ec0fc71cf1c0df36a',
+        key: '4cc8b1a4346ff89dda932ca7f06a3c7a4accc0db',
         "class": "eui-card-title"
       }, title)), h("div", {
-        key: 'fa05fcd760ac9f6adc66104fa6e89c2a5fd06a35',
+        key: '20b6aee14ff0935125fd770b53e91f2b8910d261',
         "class": "eui-card-body"
       }, h("slot", {
-        key: '5742dd4a0a238c90181e06e40bd899872099e66d',
+        key: 'bc99fc378cc3ed1879d512b12f11f9d8da5982db',
         name: "body"
       })));
     }

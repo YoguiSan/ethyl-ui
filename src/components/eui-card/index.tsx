@@ -11,16 +11,19 @@ import type EUICardType from './index.d';
 export class EUICard implements EUICardType {
   @Prop() title;
   @Prop() iconBgColor;
+  @Prop() variant;
 
   render() {
-
     const {
       title,
       iconBgColor,
+      variant = 'regular',
     } = this;
 
     return (
-      <Host>
+      <Host class={{
+        [variant]: true,
+      }}>
         {
           (title) && (
             <div class="eui-card-header">
@@ -39,5 +42,9 @@ export class EUICard implements EUICardType {
         </div>
       </Host>
     );
+  }
+
+  componentDidUpdate() {
+    this.render();
   }
 }

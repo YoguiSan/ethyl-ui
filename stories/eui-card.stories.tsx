@@ -2,18 +2,22 @@
 import { fn } from '@storybook/test';
 import { h } from '@stencil/core';
 import WebComponentLoader from './WebComponentLoader';
+import { variants } from '../src/components/eui-card/assets/json';
+import EUICardType from '../src/components/eui-card/index.d';
 
 const EUICard = ({
   title,
   iconBgColor,
-}) => {
+  variant,
+}: EUICardType) => {
   return (
     <div>
-      <WebComponentLoader />
       <eui-card
         title={title}
         iconBgColor={iconBgColor}
+        variant={variant}
       >
+        <WebComponentLoader />
           <svg slot="icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z" fill="#000000" />
             <path d="M12 18C7.58 18 4 14.42 4 10c0-3.31 2.69-6 6-6s6 2.69 6 6-2.69 6-6 6z" fill="#000000" />
@@ -39,6 +43,13 @@ const meta = {
   args: {
     iconBgColor: '',
     title: '',
+    variant: '',
+  },
+  argTypes: {
+    variant: {
+      options: ['regular', 'callout'],
+      control: { type: 'select' },
+    },
   },
 };
 
@@ -49,6 +60,7 @@ export const Primary: unknown = {
   args: {
     title: 'Primary',
     iconBgColor: 'red',
+    variant: 'callout',
   },
 };
 

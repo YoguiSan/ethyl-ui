@@ -45,4 +45,8 @@
     grid-column: 2 / span 15;
     padding-left: 1rem;
   }
+
+  &.callout, &[variant=callout] {
+    border-left: solid 5px Colors.$gray;
+  }
 }

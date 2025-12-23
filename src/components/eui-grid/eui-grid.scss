@@ -9,12 +9,12 @@
     width: 100%;
   }
 
-  &.narrow {
+  &.narrow, &[narrow="true"] {
     padding-left: 0;
     padding-right: 0;
   }
 
-  &.condensed {
+  &.condensed, &[condensed="true"] {
     padding-bottom: 0;
     padding-top: 0;
   }

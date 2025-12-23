@@ -25,6 +25,7 @@ export namespace Components {
     interface EuiCard {
         "iconBgColor": any;
         "title": any;
+        "variant": any;
     }
     interface EuiFigure {
         "alt": any;
@@ -54,6 +55,26 @@ export namespace Components {
         "resizeHandler"?: void;
         "small": any;
     }
+    interface EuiInput {
+        "classes": any;
+        /**
+          * @default 'lightgray'
+         */
+        "color": string;
+        "fontColor": any;
+        "fullwidth": any;
+        "icon": any;
+        "onClick": any;
+        "padding": any;
+        "styles": any;
+        "text": any;
+        "type": any;
+        "variant": any;
+    }
+    interface EuiModal {
+        "open": any;
+        "title": any;
+    }
 }
 declare global {
     interface HTMLEuiButtonElement extends Components.EuiButton, HTMLStencilElement {
@@ -80,11 +101,25 @@ declare global {
         prototype: HTMLEuiGridElement;
         new (): HTMLEuiGridElement;
     };
+    interface HTMLEuiInputElement extends Components.EuiInput, HTMLStencilElement {
+    }
+    var HTMLEuiInputElement: {
+        prototype: HTMLEuiInputElement;
+        new (): HTMLEuiInputElement;
+    };
+    interface HTMLEuiModalElement extends Components.EuiModal, HTMLStencilElement {
+    }
+    var HTMLEuiModalElement: {
+        prototype: HTMLEuiModalElement;
+        new (): HTMLEuiModalElement;
+    };
     interface HTMLElementTagNameMap {
         "eui-button": HTMLEuiButtonElement;
         "eui-card": HTMLEuiCardElement;
         "eui-figure": HTMLEuiFigureElement;
         "eui-grid": HTMLEuiGridElement;
+        "eui-input": HTMLEuiInputElement;
+        "eui-modal": HTMLEuiModalElement;
     }
 }
 declare namespace LocalJSX {
@@ -107,6 +142,7 @@ declare namespace LocalJSX {
     interface EuiCard {
         "iconBgColor"?: any;
         "title"?: any;
+        "variant"?: any;
     }
     interface EuiFigure {
         "alt"?: any;
@@ -136,11 +172,33 @@ declare namespace LocalJSX {
         "resizeHandler"?: void;
         "small"?: any;
     }
+    interface EuiInput {
+        "classes"?: any;
+        /**
+          * @default 'lightgray'
+         */
+        "color"?: string;
+        "fontColor"?: any;
+        "fullwidth"?: any;
+        "icon"?: any;
+        "onClick"?: any;
+        "padding"?: any;
+        "styles"?: any;
+        "text"?: any;
+        "type"?: any;
+        "variant"?: any;
+    }
+    interface EuiModal {
+        "open"?: any;
+        "title"?: any;
+    }
     interface IntrinsicElements {
         "eui-button": EuiButton;
         "eui-card": EuiCard;
         "eui-figure": EuiFigure;
         "eui-grid": EuiGrid;
+        "eui-input": EuiInput;
+        "eui-modal": EuiModal;
     }
 }
 export { LocalJSX as JSX };
@@ -151,6 +209,8 @@ declare module "@stencil/core" {
             "eui-card": LocalJSX.EuiCard & JSXBase.HTMLAttributes<HTMLEuiCardElement>;
             "eui-figure": LocalJSX.EuiFigure & JSXBase.HTMLAttributes<HTMLEuiFigureElement>;
             "eui-grid": LocalJSX.EuiGrid & JSXBase.HTMLAttributes<HTMLEuiGridElement>;
+            "eui-input": LocalJSX.EuiInput & JSXBase.HTMLAttributes<HTMLEuiInputElement>;
+            "eui-modal": LocalJSX.EuiModal & JSXBase.HTMLAttributes<HTMLEuiModalElement>;
         }
     }
 }

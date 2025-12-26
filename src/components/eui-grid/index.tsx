@@ -27,22 +27,22 @@ export class EUIGrid implements EUIGridRowColumnType {
   @Prop() rendered: boolean;
 
   handleResize() {
-    const { innerWidth: width } = window;
+    const { offsetWidth: width } = document.body;
 
     let columns = 0;
 
-    if (width <= Breakpoints.extraSmall) {
+    if (width <= Breakpoints.small) {
       columns = this.extrasmall || 16;
-    } else if (width <= Breakpoints.small) {
+    } else if (width <= Breakpoints.medium) {
       columns = this.small
         || this.extrasmall
         || 16;
-    } else if (width <= Breakpoints.medium) {
+    } else if (width <= Breakpoints.large) {
       columns = this.medium
         || this.small
         || this.extrasmall
         || 16;
-    } else if (width <= Breakpoints.large) {
+    } else if (width <= Breakpoints.extraLarge) {
       columns = this.large
         || this.medium
         || this.small

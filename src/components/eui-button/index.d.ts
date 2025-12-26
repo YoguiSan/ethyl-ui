@@ -4,7 +4,6 @@ export default interface EUIButtonType {
   type?: string;
   color?: string;
   text: string;
-  icon?: unknown;
   fontColor?: string;
   onClick: (event: unknown) => unknown;
   styles?: { [key: string]: unknown };

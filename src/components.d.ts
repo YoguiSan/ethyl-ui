@@ -14,7 +14,6 @@ export namespace Components {
         "color": string;
         "fontColor": any;
         "fullwidth": any;
-        "icon": any;
         "onClick": any;
         "padding": any;
         "styles": any;
@@ -131,7 +130,6 @@ declare namespace LocalJSX {
         "color"?: string;
         "fontColor"?: any;
         "fullwidth"?: any;
-        "icon"?: any;
         "onClick"?: any;
         "padding"?: any;
         "styles"?: any;

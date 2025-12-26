@@ -14,7 +14,6 @@ export class EUIButton implements EUIButtonType {
   @Prop() type;
   @Prop() color = 'lightgray';
   @Prop() text;
-  @Prop() icon;
   @Prop() fontColor;
   @Prop() onClick;
   @Prop() styles;
@@ -22,8 +21,8 @@ export class EUIButton implements EUIButtonType {
   @Prop() fullwidth;
 
   render() {
-    const className:string = this.classes && Array.isArray(this.classes) ? this.classes.join(' ') : '';
-
+    const className:string = this.classes && Array.isArray(this.classes) ? this.classes.join(' ') : '';    
+  
     const {
       variant,
       padding,
@@ -31,35 +30,37 @@ export class EUIButton implements EUIButtonType {
       fontColor,
     } = this;
 
+    const style: {
+      background?: string,
+      color?: string,
+      padding?: string,
+    } = {
+      ...this.styles,
+    };
+
+    if (color) {
+      style.background = color
+    };
+
+    if (fontColor) {
+      style.color = fontColor;
+    }
+
+    if (padding) {
+      style.padding =  typeof (padding) === 'number'
+        ? `${padding}px;`
+        : `${padding};`
+    }
+
     return (
       <Host>
-        <style>
-          {`
-            ${
-              (
-                padding
-                  && (
-                    typeof (padding === 'number')
-                      ? `${padding}px;`
-                      : `${padding};`
-                  )
-                )
-            || ''
-            }
-            ${
-              color  ? `background: ${color};`: ''
-            }
-            ${
-              fontColor ? `color: ${fontColor};` : ''
-            }
-          `}
-        </style>
         <button
           type={this.type}
           onClick={(event) => this.onClick(event)}
           class={`${className} ${variant && `variant-${variant}`} ${this.fullwidth && 'fullWidth'}`}
+          style={style}
         >
-          {this.icon && this.icon}
+          <slot name="icon" />
           {this.text}
         </button>
       </Host>

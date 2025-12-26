@@ -13,7 +13,6 @@
 | `color`     | `color`      |             | `string` | `'lightgray'` |
 | `fontColor` | `font-color` |             | `any`    | `undefined`   |
 | `fullwidth` | `fullwidth`  |             | `any`    | `undefined`   |
-| `icon`      | `icon`       |             | `any`    | `undefined`   |
 | `onClick`   | `on-click`   |             | `any`    | `undefined`   |
 | `padding`   | `padding`    |             | `any`    | `undefined`   |
 | `styles`    | `styles`     |             | `any`    | `undefined`   |

@@ -6,12 +6,14 @@ import { sass } from '@stencil/sass';
 export const config: Config = {
   namespace: 'ethyl-ui',
   outputTargets: [
+    /*
     reactOutputTarget({
       outDir: 'dist/react-wrappers',
       customElementsDir: 'components',  // MUST match above dir
       stencilPackageName: 'ethyl-ui',
       includeImportCustomElements: true,
     }),
+    */
     {
       type: 'dist-custom-elements',
       dir: 'components',  // Creates dist/components/eui-button.js

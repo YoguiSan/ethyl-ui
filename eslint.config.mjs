@@ -7,13 +7,24 @@ import tseslint from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 
 export default [
-  {files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"]},
+  {files: ["**/*.{js,ts,jsx,tsx}"]},
+  {
+    ignores: [
+      "node_modules/**",
+      "dist/**",
+      "loader/**",
+      "www/**",
+      "build/**",
+      "webpack.config.js",
+    ],
+  },
   {languageOptions: { globals: globals.browser }},
   {rules: {
-    'react/react-in-jsx-scope': false,
+    'react/react-in-jsx-scope': 'warn',
   }},
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   pluginReact.configs.flat.recommended,
-  ...storybook.configs["flat/recommended"]
+  ...storybook.configs["flat/recommended"],
+
 ];

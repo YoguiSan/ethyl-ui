@@ -1,10 +1,10 @@
 import { Colors } from '../../../assets/json';
 
-const colors = {};
+const colors: { [key: string]: string } = {};
 
-Object.keys(Colors).forEach((color) => {
+Object.keys(Colors).forEach((color: string) => {
   colors[color] = `
-  background: ${Colors[color]};
+  background: ${(Colors as { [key: string]: string })[color] as string};
   `;
 });
 

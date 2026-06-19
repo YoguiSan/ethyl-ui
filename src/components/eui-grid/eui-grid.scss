@@ -1,4 +1,4 @@
-@import '../../assets/styles/breakpoints.scss';
+@use '../../assets/styles/breakpoints.scss' as Breakpoints;
 
 @mixin newBreakpoint($breakpoint, $columns) {
   @if $columns != 0 {
@@ -37,22 +37,22 @@
   }
 
   @if --eui-grid-columns-extraSmall {
-    @include newBreakpoint($extraSmall, --eui-grid-columns-extraSmall);
+    @include newBreakpoint(Breakpoints.$extraSmall, --eui-grid-columns-extraSmall);
   }
 
   @if --eui-grid-columns-small {
-    @include newBreakpoint($small, --eui-grid-columns-small);
+    @include newBreakpoint(Breakpoints.$small, --eui-grid-columns-small);
   }
 
   @if --eui-grid-columns-medium {
-    @include newBreakpoint($medium, --eui-grid-columns-medium);
+    @include newBreakpoint(Breakpoints.$medium, --eui-grid-columns-medium);
   }
 
   @if --eui-grid-columns-large {
-    @include newBreakpoint($large, --eui-grid-columns-large);
+    @include newBreakpoint(Breakpoints.$large, --eui-grid-columns-large);
   }
 
   @if --eui-grid-columns-extraLarge {
-    @include newBreakpoint($extraLarge, --eui-grid-columns-extraLarge);
+    @include newBreakpoint(Breakpoints.$extraLarge, --eui-grid-columns-extraLarge);
   }
 }

@@ -10,4 +10,3 @@
 
 export { format } from './utils/utils';
 export type * from './components.d.ts';
-export * from '../dist/react-wrappers/components'; // Export React wrappers

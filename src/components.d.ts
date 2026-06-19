@@ -134,21 +134,64 @@ declare namespace LocalJSX {
         "narrow"?: any;
         "small"?: any;
     }
+
+    interface EuiButtonAttributes {
+        "variant": string;
+        "padding": string;
+        "type": string;
+        "color": string;
+        "text": string;
+        "icon": string;
+        "fontColor": string;
+        "onClick": string;
+        "styles": string;
+        "classes": string;
+        "fullwidth": string;
+    }
+    interface EuiCardAttributes {
+        "title": string;
+        "iconBgColor": string;
+        "children": string;
+    }
+    interface EuiFigureAttributes {
+        "src": string;
+        "alt": string;
+        "caption": string;
+        "backgroundImage": string;
+        "classes": string;
+        "url": string;
+    }
+    interface EuiGridAttributes {
+        "columns": string;
+        "gap": string;
+        "container": string;
+        "extrasmall": string;
+        "small": string;
+        "medium": string;
+        "large": string;
+        "extralarge": string;
+        "narrow": string;
+        "condensed": string;
+        "classes": string;
+        "flexDirection": string;
+        "justifyContent": string;
+    }
+
     interface IntrinsicElements {
-        "eui-button": EuiButton;
-        "eui-card": EuiCard;
-        "eui-figure": EuiFigure;
-        "eui-grid": EuiGrid;
+        "eui-button": Omit<EuiButton, keyof EuiButtonAttributes> & { [K in keyof EuiButton & keyof EuiButtonAttributes]?: EuiButton[K] } & { [K in keyof EuiButton & keyof EuiButtonAttributes as `attr:${K}`]?: EuiButtonAttributes[K] } & { [K in keyof EuiButton & keyof EuiButtonAttributes as `prop:${K}`]?: EuiButton[K] };
+        "eui-card": Omit<EuiCard, keyof EuiCardAttributes> & { [K in keyof EuiCard & keyof EuiCardAttributes]?: EuiCard[K] } & { [K in keyof EuiCard & keyof EuiCardAttributes as `attr:${K}`]?: EuiCardAttributes[K] } & { [K in keyof EuiCard & keyof EuiCardAttributes as `prop:${K}`]?: EuiCard[K] };
+        "eui-figure": Omit<EuiFigure, keyof EuiFigureAttributes> & { [K in keyof EuiFigure & keyof EuiFigureAttributes]?: EuiFigure[K] } & { [K in keyof EuiFigure & keyof EuiFigureAttributes as `attr:${K}`]?: EuiFigureAttributes[K] } & { [K in keyof EuiFigure & keyof EuiFigureAttributes as `prop:${K}`]?: EuiFigure[K] };
+        "eui-grid": Omit<EuiGrid, keyof EuiGridAttributes> & { [K in keyof EuiGrid & keyof EuiGridAttributes]?: EuiGrid[K] } & { [K in keyof EuiGrid & keyof EuiGridAttributes as `attr:${K}`]?: EuiGridAttributes[K] } & { [K in keyof EuiGrid & keyof EuiGridAttributes as `prop:${K}`]?: EuiGrid[K] };
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "eui-button": LocalJSX.EuiButton & JSXBase.HTMLAttributes<HTMLEuiButtonElement>;
-            "eui-card": LocalJSX.EuiCard & JSXBase.HTMLAttributes<HTMLEuiCardElement>;
-            "eui-figure": LocalJSX.EuiFigure & JSXBase.HTMLAttributes<HTMLEuiFigureElement>;
-            "eui-grid": LocalJSX.EuiGrid & JSXBase.HTMLAttributes<HTMLEuiGridElement>;
+            "eui-button": LocalJSX.IntrinsicElements["eui-button"] & JSXBase.HTMLAttributes<HTMLEuiButtonElement>;
+            "eui-card": LocalJSX.IntrinsicElements["eui-card"] & JSXBase.HTMLAttributes<HTMLEuiCardElement>;
+            "eui-figure": LocalJSX.IntrinsicElements["eui-figure"] & JSXBase.HTMLAttributes<HTMLEuiFigureElement>;
+            "eui-grid": LocalJSX.IntrinsicElements["eui-grid"] & JSXBase.HTMLAttributes<HTMLEuiGridElement>;
         }
     }
 }

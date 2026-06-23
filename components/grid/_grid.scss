@@ -1,28 +1,20 @@
 @use '../../assets/styles/_breakpoints.scss' as Breakpoints;
 
-@mixin newBreakpoint($breakpoint, $columns) {
-  @if $columns != 0 {
-    @media all and (min-width: $breakpoint) {
-      grid-column: span var($columns);
-    }
-  }
-}
-
 eui-grid {
   --eui-grid-template-columns: 16;
-  --eui-grid-columns: 16;
-  --eui-grid-columns-extraSmall: false;
-  --eui-grid-columns-small: false;
-  --eui-grid-columns-medium: false;
-  --eui-grid-columns-large: false;
-  --eui-grid-columns-extraLarge: false;
+  --eui-grid-template-gap: 1rem;
+
+  --eui-grid-columns-base: 16;
+  --eui-grid-columns-resolved: var(--eui-grid-columns-base);
 
   display: block;
   padding: 1rem;
+  grid-column: span var(--eui-grid-columns-resolved);
 
-  &[container="true"] {
+  &[container] {
     display: grid;
     grid-template-columns: repeat(var(--eui-grid-template-columns), 1fr);
+    gap: var(--eui-grid-template-gap);
     width: 100%;
   }
 
@@ -32,27 +24,45 @@ eui-grid {
   }
 
   &.condensed {
-    padding-bottom: 0;
     padding-top: 0;
+    padding-bottom: 0;
   }
 
-  @if --eui-grid-columns-extraSmall {
-    @include newBreakpoint(Breakpoints.$extraSmall, --eui-grid-columns-extraSmall);
+  @media all and (min-width: Breakpoints.$extraSmall) {
+    --eui-grid-columns-resolved: var(--eui-grid-columns-extraSmall, var(--eui-grid-columns-base));
   }
 
-  @if --eui-grid-columns-small {
-    @include newBreakpoint(Breakpoints.$small, --eui-grid-columns-small);
+  @media all and (min-width: Breakpoints.$small) {
+    --eui-grid-columns-resolved: var(
+      --eui-grid-columns-small,
+      var(--eui-grid-columns-extraSmall, var(--eui-grid-columns-base))
+    );
   }
 
-  @if --eui-grid-columns-medium {
-    @include newBreakpoint(Breakpoints.$medium, --eui-grid-columns-medium);
+  @media all and (min-width: Breakpoints.$medium) {
+    --eui-grid-columns-resolved: var(
+      --eui-grid-columns-medium,
+      var(--eui-grid-columns-small,
+      var(--eui-grid-columns-extraSmall, var(--eui-grid-columns-base)))
+    );
   }
 
-  @if --eui-grid-columns-large {
-    @include newBreakpoint(Breakpoints.$large, --eui-grid-columns-large);
+  @media all and (min-width: Breakpoints.$large) {
+    --eui-grid-columns-resolved: var(
+      --eui-grid-columns-large,
+      var(--eui-grid-columns-medium,
+      var(--eui-grid-columns-small,
+      var(--eui-grid-columns-extraSmall, var(--eui-grid-columns-base))))
+    );
   }
 
-  @if --eui-grid-columns-extraLarge {
-    @include newBreakpoint(Breakpoints.$extraLarge, --eui-grid-columns-extraLarge);
+  @media all and (min-width: Breakpoints.$extraLarge) {
+    --eui-grid-columns-resolved: var(
+      --eui-grid-columns-extraLarge,
+      var(--eui-grid-columns-large,
+      var(--eui-grid-columns-medium,
+      var(--eui-grid-columns-small,
+      var(--eui-grid-columns-extraSmall, var(--eui-grid-columns-base)))))
+    );
   }
 }

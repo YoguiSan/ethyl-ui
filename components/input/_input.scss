@@ -1,5 +1,5 @@
-@use '../../assets/styles/colors.scss' as Colors;
-@import '../../assets/styles/fonts.scss';
+@use '../../assets/styles/_colors.scss' as Colors;
+@use '../../assets/styles/_fonts.scss';
 
 eui-input {
   height: fit-content;

@@ -65,6 +65,7 @@ class EUIButton extends HTMLElement {
     const fontColor = this.getAttribute('font-color');
     const padding = this.getAttribute('padding');
     const fullwidth = this.hasAttribute('fullwidth');
+    const label = this.getAttribute('label') || this.getAttribute('text');
 
     this._button.type = type;
     this._button.className = [
@@ -83,6 +84,10 @@ class EUIButton extends HTMLElement {
         : padding
       : '';
     this._button.style.width = fullwidth ? '100%' : '';
+
+    this._labelWrapper.innerText = label;
+
+    // this._button.innerText = '';
   }
 
   _projectContent() {
@@ -116,8 +121,8 @@ class EUIButton extends HTMLElement {
   }
 
   render() {
-    this._applyAttributes();
     this._projectContent();
+    this._applyAttributes();
     this._bindEvents();
   }
 }

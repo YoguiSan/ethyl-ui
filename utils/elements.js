@@ -5,5 +5,4 @@ export const defineCustomElement = (name, element) => {
 };
 
 // Aliases
-export const applyStyles = appendStyle;
 export const createElement = defineCustomElement;

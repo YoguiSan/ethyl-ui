@@ -12,10 +12,12 @@ class EUICard extends HTMLElement {
     this._title = document.createElement('p');
     this._body = document.createElement('div');
     this._initialized = false;
+    this._sourceNodes = [];
   }
 
   connectedCallback() {
     if (!this._initialized) {
+      this._captureSourceNodes();
       this._setupStructure();
       this._initialized = true;
     }
@@ -29,6 +31,10 @@ class EUICard extends HTMLElement {
     }
   }
 
+  _captureSourceNodes() {
+    this._sourceNodes = Array.from(this.childNodes);
+  }
+
   _setupStructure() {
     this._header.className = 'eui-card-header';
     this._icon.className = 'eui-card-icon';
@@ -36,21 +42,22 @@ class EUICard extends HTMLElement {
     this._body.className = 'eui-card-body';
 
     this._header.append(this._icon, this._title);
-    this.append(this._header, this._body);
+
+    this.replaceChildren(this._header, this._body);
   }
 
   _collectProjectedNodes() {
-    const children = Array.from(this.childNodes).filter((node) => {
-      return (
-        node !== this._header &&
-        node !== this._body
-      );
-    });
-
     const iconNodes = [];
     const bodyNodes = [];
 
-    for (const node of children) {
+    for (const node of this._sourceNodes) {
+      if (
+        node.nodeType === Node.TEXT_NODE &&
+        !node.textContent.trim()
+      ) {
+        continue;
+      }
+
       if (node.nodeType === Node.ELEMENT_NODE) {
         const slotName = node.getAttribute('slot');
 
@@ -74,19 +81,8 @@ class EUICard extends HTMLElement {
   _projectContent() {
     const { iconNodes, bodyNodes } = this._collectProjectedNodes();
 
-    this._icon.replaceChildren();
-    this._body.replaceChildren();
-
-    if (iconNodes.length > 0) {
-      this._icon.append(...iconNodes);
-      this._icon.hidden = false;
-    } else {
-      this._icon.hidden = true;
-    }
-
-    if (bodyNodes.length > 0) {
-      this._body.append(...bodyNodes);
-    }
+    this._icon.replaceChildren(...iconNodes);
+    this._body.replaceChildren(...bodyNodes);
   }
 
   _applyAttributes() {
@@ -94,12 +90,15 @@ class EUICard extends HTMLElement {
     const iconBgColor = this.getAttribute('icon-bg-color') || '';
     const variant = this.getAttribute('variant') || 'regular';
 
-    this.className = variant;
+    const knownVariants = ['regular', 'warning', 'success', 'error', 'info'];
+    knownVariants.forEach((name) => this.classList.remove(name));
+    this.classList.add(variant);
 
     this._title.textContent = title;
     this._title.hidden = !title;
 
     this._icon.style.backgroundColor = iconBgColor;
+    this._icon.hidden = this._icon.childNodes.length === 0;
 
     const hasHeader = Boolean(title) || this._icon.childNodes.length > 0;
     this._header.hidden = !hasHeader;

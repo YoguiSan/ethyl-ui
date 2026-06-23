@@ -1,4 +1,4 @@
-import { defineCustomElement, applyStyles } from '../../utils/elements';
+import { defineCustomElement } from '../../utils/elements';
 
 class EUIButton extends HTMLElement {
   static get observedAttributes() {
@@ -18,8 +18,6 @@ class EUIButton extends HTMLElement {
       this._setupStructure();
       this._initialized = true;
     }
-
-    applyStyles(this);
 
     this.render();
   }

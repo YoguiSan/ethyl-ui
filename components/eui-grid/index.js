@@ -1,4 +1,4 @@
-import { createElement, applyStyles } from '../../utils/elements';
+import { createElement } from '../../utils/elements';
 
 class EUIGrid extends HTMLElement {
   static get observedAttributes() {
@@ -19,7 +19,6 @@ class EUIGrid extends HTMLElement {
   }
 
   connectedCallback() {
-    applyStyles(this);
     this.render();
   }
 

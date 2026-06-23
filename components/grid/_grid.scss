@@ -1,0 +1,68 @@
+@use '../../assets/styles/_breakpoints.scss' as Breakpoints;
+
+eui-grid {
+  --eui-grid-template-columns: 16;
+  --eui-grid-template-gap: 1rem;
+
+  --eui-grid-columns-base: 16;
+  --eui-grid-columns-resolved: var(--eui-grid-columns-base);
+
+  display: block;
+  padding: 1rem;
+  grid-column: span var(--eui-grid-columns-resolved);
+
+  &[container] {
+    display: grid;
+    grid-template-columns: repeat(var(--eui-grid-template-columns), 1fr);
+    gap: var(--eui-grid-template-gap);
+    width: 100%;
+  }
+
+  &.narrow {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &.condensed {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  @media all and (min-width: Breakpoints.$extraSmall) {
+    --eui-grid-columns-resolved: var(--eui-grid-columns-extraSmall, var(--eui-grid-columns-base));
+  }
+
+  @media all and (min-width: Breakpoints.$small) {
+    --eui-grid-columns-resolved: var(
+      --eui-grid-columns-small,
+      var(--eui-grid-columns-extraSmall, var(--eui-grid-columns-base))
+    );
+  }
+
+  @media all and (min-width: Breakpoints.$medium) {
+    --eui-grid-columns-resolved: var(
+      --eui-grid-columns-medium,
+      var(--eui-grid-columns-small,
+      var(--eui-grid-columns-extraSmall, var(--eui-grid-columns-base)))
+    );
+  }
+
+  @media all and (min-width: Breakpoints.$large) {
+    --eui-grid-columns-resolved: var(
+      --eui-grid-columns-large,
+      var(--eui-grid-columns-medium,
+      var(--eui-grid-columns-small,
+      var(--eui-grid-columns-extraSmall, var(--eui-grid-columns-base))))
+    );
+  }
+
+  @media all and (min-width: Breakpoints.$extraLarge) {
+    --eui-grid-columns-resolved: var(
+      --eui-grid-columns-extraLarge,
+      var(--eui-grid-columns-large,
+      var(--eui-grid-columns-medium,
+      var(--eui-grid-columns-small,
+      var(--eui-grid-columns-extraSmall, var(--eui-grid-columns-base)))))
+    );
+  }
+}

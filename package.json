@@ -1,0 +1,17 @@
+{
+  "name": "ethyl-ui",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "Nelson Salles de Barros Filho",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "watch:sass": "sass --watch .",
+    "watch": ""
+  },
+  "devDependencies": {
+    "sass": "^1.101.0"
+  }
+}

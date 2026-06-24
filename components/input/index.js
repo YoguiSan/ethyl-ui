@@ -14,7 +14,7 @@ class EUIInput extends HTMLElement {
       'padding',
       'color',
       'font-color',
-      'fullwidth'
+      'fullwidth',
     ];
   }
 

@@ -24,6 +24,7 @@ class EUIInput extends HTMLElement {
     this._wrapper = document.createElement('div');
     this._iconWrapper = document.createElement('span');
     this._input = document.createElement('input');
+    this._labelWrapper = document.createElement('label');
 
     this._initialized = false;
   }
@@ -61,7 +62,9 @@ class EUIInput extends HTMLElement {
     this._wrapper.className = 'eui-input__wrapper';
     this._iconWrapper.className = 'eui-input__icon';
     this._input.className = 'eui-input__control';
+    this._labelWrapper.className = 'eui-input__label';
 
+    this._wrapper.append(this._labelWrapper);
     this._wrapper.append(this._iconWrapper, this._input);
     this.appendChild(this._wrapper);
   }
@@ -137,6 +140,7 @@ class EUIInput extends HTMLElement {
     const color = this.getAttribute('color') || '';
     const fontColor = this.getAttribute('font-color') || '';
     const padding = this.getAttribute('padding');
+    const label = this.getAttribute('label');
     const fullwidth = this.hasAttribute('fullwidth');
 
     this._input.type = type;
@@ -146,6 +150,8 @@ class EUIInput extends HTMLElement {
     this._input.disabled = this.hasAttribute('disabled');
     this._input.readOnly = this.hasAttribute('readonly');
     this._input.required = this.hasAttribute('required');
+
+    this._labelWrapper.innerText = label;
 
     this._input.className = [
       'eui-input__control',

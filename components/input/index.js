@@ -1,4 +1,5 @@
 import { defineCustomElement } from '../../utils/elements';
+import './_input.scss';
 
 class EUIInput extends HTMLElement {
   static get observedAttributes() {

@@ -1,4 +1,5 @@
 import { defineCustomElement } from '../../utils/elements';
+import './_modal.scss';
 
 class EUIModal extends HTMLElement {
   static get observedAttributes() {

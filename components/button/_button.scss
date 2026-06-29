@@ -2,6 +2,7 @@
 @use '../../assets/styles/_fonts.scss';
 
 eui-button {
+  display: block;
   height: fit-content;
 
   button {
@@ -9,9 +10,10 @@ eui-button {
     border: none;
     border-radius: .4rem;
     cursor: pointer;
-    padding: .4rem .7rem;
     font-family: "Fira Sans", Montserrat, Nunito, Roboto, sans-serif;
     font-size: .9rem;
+    padding: .4rem .7rem;
+    width: 100%;
 
     &:hover {
       opacity: .7;

@@ -65,6 +65,7 @@ class EUIButton extends HTMLElement {
     const fontColor = this.getAttribute('font-color');
     const padding = this.getAttribute('padding');
     const fullwidth = this.hasAttribute('fullwidth');
+    const action = this.getAttribute('action');
     const label = this.getAttribute('label') || this.getAttribute('text');
 
     this._button.type = type;
@@ -87,7 +88,11 @@ class EUIButton extends HTMLElement {
 
     this._labelWrapper.innerText = label;
 
-    // this._button.innerText = '';
+    if (action && typeof (action) === 'string' && action.length > 0) {
+      document.addEventListener('eui-click', () => {
+        window.location.href = action;
+      });
+    }
   }
 
   _projectContent() {

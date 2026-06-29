@@ -1,4 +1,5 @@
 import { defineCustomElement } from '../../utils/elements';
+import './_figure.scss';
 
 class EUIFigure extends HTMLElement {
   static get observedAttributes() {

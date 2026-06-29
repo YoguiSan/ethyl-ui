@@ -9,12 +9,15 @@
   "scripts": {
     "test": "jest",
     "watch:sass": "sass --watch .",
-    "watch": "",
-    "build": ""
+    "watch": "rollup -c --watch",
+    "build": "rollup -c"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^16.0.3",
     "commitizen": "^4.3.2",
     "cz-conventional-changelog": "^3.3.0",
+    "rollup": "^4.62.2",
+    "rollup-plugin-postcss": "^4.0.2",
     "sass": "^1.101.0"
   },
   "config": {

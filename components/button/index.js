@@ -1,4 +1,5 @@
 import { defineCustomElement } from '../../utils/elements';
+import './_button.scss';
 
 class EUIButton extends HTMLElement {
   static get observedAttributes() {

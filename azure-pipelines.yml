@@ -15,10 +15,10 @@ steps:
     echo "registry=https://yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/registry/
     ; begin auth token
     //yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/registry/:username=yoguisan
-    //yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/registry/:_password=[BASE64_ENCODED_PERSONAL_ACCESS_TOKEN]
+    //yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/registry/:_password=$(AZURE_PAT)
     //yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/registry/:email=npm requires email to be set but doesn't use the value
     //yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/:username=yoguisan
-    //yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/:_password=[BASE64_ENCODED_PERSONAL_ACCESS_TOKEN]
+    //yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/:_password=$(AZURE_PAT)
     //yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/:email=npm requires email to be set but doesn't use the value
     ; end auth token
     " >> .npmrc

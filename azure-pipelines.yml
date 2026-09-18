@@ -11,18 +11,14 @@ steps:
 - script: npm i
   displayName: 'Install dependencies'
 
-- script: |
-    sudo echo "registry=https://yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/registry/
-    ; begin auth token
-    //yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/registry/:username=yoguisan
-    //yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/registry/:_password=$AZURE_PAT
-    //yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/registry/:email=npm requires email to be set but doesn't use the value
-    //yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/:username=yoguisan
-    //yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/:_password=$AZURE_PAT
-    //yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/:email=npm requires email to be set but doesn't use the value
-    ; end auth token
-    " > .npmrc
-  displayName: 'Setup repository'
+- task: Npm@1
+  inputs:
+    command: 'publish'
+    publishRegistry: 'useFeed'
+    publishFeed: '1dedab61-9794-4c00-bb7d-819d2b0f1fed'
 
 - script: npm run build
   displayName: 'Build'
+
+- script: npm publish
+  displayName: Publish to Azure Artifacts

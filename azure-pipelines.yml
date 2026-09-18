@@ -8,17 +8,18 @@ steps:
 - script: sudo apt install nodejs
   displayName: 'Install Node.js'
 
-- script: npm i
-  displayName: 'Install dependencies'
-
 - task: Npm@1
+  displayName: 'Install dependencies'
   inputs:
-    command: 'publish'
-    publishRegistry: 'useFeed'
-    publishFeed: '1dedab61-9794-4c00-bb7d-819d2b0f1fed'
+    command: 'ci'
 
 - script: npm run build
   displayName: 'Build'
 
-- script: npm publish
-  displayName: Publish to Azure Artifacts
+- task: Npm@1
+  displayName: 'Publish to Azure Artifacts'
+  inputs:
+    command: 'publish'
+    verbose: true
+    publishRegistry: 'useFeed'
+    publishFeed: '1dedab61-9794-4c00-bb7d-819d2b0f1fed'

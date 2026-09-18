@@ -9,7 +9,7 @@ steps:
   displayName: 'Install Node.js'
 
 - script: |
-    echo "registry=https://yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/registry/
+    sudo echo "registry=https://yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/registry/
     ; begin auth token
     //yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/registry/:username=yoguisan
     //yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/registry/:_password=$AZURE_PAT

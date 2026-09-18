@@ -18,7 +18,7 @@ steps:
     //yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/:_password=$AZURE_PAT
     //yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/:email=npm requires email to be set but doesn't use the value
     ; end auth token
-    " > "$SCRIPTPATH/../.npmrc"
+    " > .npmrc
   displayName: 'Setup repository'
 
 - script: npm i

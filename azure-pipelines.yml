@@ -25,6 +25,7 @@ steps:
     if [ -e .npmrc ]
     then
       echo ".npmrc file with credentials created"
+      cat ./.npmrc
     else
       echo "Error created .npmrc file"
       exit 1

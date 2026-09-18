@@ -10,7 +10,8 @@
     "test": "jest",
     "watch:sass": "sass --watch .",
     "watch": "rollup -c --watch",
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "publish": "npm publish --no-workspaces"
   },
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^16.0.3",

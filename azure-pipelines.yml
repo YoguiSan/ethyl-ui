@@ -22,6 +22,13 @@ steps:
     //yoguisan.pkgs.visualstudio.com/_packaging/yoguisan/npm/:email=npm requires email to be set but doesn't use the value
     ; end auth token
     " > .npmrc
+    if [ -e .npmrc ]
+    then
+      echo ".npmrc file with credentials created"
+    else
+      echo "Error created .npmrc file"
+      exit 1
+    fi
   displayName: 'Setup repository'
 
 - script: npm run build

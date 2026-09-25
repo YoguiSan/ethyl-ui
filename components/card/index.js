@@ -1,4 +1,5 @@
 import { createElement } from '../../utils/elements';
+import './_card.scss';
 
 class EUICard extends HTMLElement {
   static get observedAttributes() {

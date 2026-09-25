@@ -1,4 +1,5 @@
 import { createElement } from '../../utils/elements';
+import './_grid.scss';
 
 class EUIGrid extends HTMLElement {
   static get observedAttributes() {

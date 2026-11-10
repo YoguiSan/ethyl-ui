@@ -9,7 +9,7 @@ and background image can be provided as HTML attributes:
 ```html
 <eui-hero-banner
   background-image="/images/summer.jpg"
-  callout="Seasonal collection"
+  eyebrow="Seasonal collection"
   title="Find your next favorite"
   subtitle="Explore our latest arrivals."
   cta-text="Shop now"

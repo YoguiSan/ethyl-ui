@@ -7,7 +7,7 @@ import './_hero-banner.scss';
 
 class EUIHeroBanner extends HTMLElement {
   static get observedAttributes() {
-    return ['background-image', 'callout', 'title', 'subtitle', 'cta-text', 'cta-action'];
+    return ['background-image', 'eyebrow', 'title', 'subtitle', 'cta-text', 'cta-action'];
   }
 
   constructor() {
@@ -15,7 +15,7 @@ class EUIHeroBanner extends HTMLElement {
 
     this._banner = document.createElement('section');
     this._content = document.createElement('div');
-    this._callout = document.createElement('p');
+    this._eyebrow = document.createElement('p');
     this._title = document.createElement('h1');
     this._subtitle = document.createElement('p');
     this._ctaWrapper = document.createElement('div');
@@ -58,14 +58,14 @@ class EUIHeroBanner extends HTMLElement {
   _setupStructure() {
     this._banner.className = 'eui-hero-banner';
     this._content.className = 'eui-hero-banner__content';
-    this._callout.className = 'eui-hero-banner__callout';
+    this._eyebrow.className = 'eui-hero-banner__eyebrow';
     this._title.className = 'eui-hero-banner__title';
     this._subtitle.className = 'eui-hero-banner__subtitle';
     this._ctaWrapper.className = 'eui-hero-banner__cta';
     this._ctaButton.className = 'eui-hero-banner__cta-control';
 
     this._content.append(
-      this._callout,
+      this._eyebrow,
       this._title,
       this._subtitle,
       this._ctaWrapper
@@ -147,7 +147,7 @@ class EUIHeroBanner extends HTMLElement {
     }
 
     const backgroundImage = this.getAttribute('background-image') || '';
-    const callout = this.getAttribute('callout') || '';
+    const eyebrow = this.getAttribute('eyebrow') || '';
     const title = this.getAttribute('title') || '';
     const subtitle = this.getAttribute('subtitle') || '';
 
@@ -155,8 +155,8 @@ class EUIHeroBanner extends HTMLElement {
       '--eui-hero-banner-image',
       backgroundImage ? `url(${JSON.stringify(backgroundImage)})` : 'none'
     );
-    this._callout.textContent = callout;
-    this._callout.hidden = !callout;
+    this._eyebrow.textContent = eyebrow;
+    this._eyebrow.hidden = !eyebrow;
     this._title.textContent = title;
     this._subtitle.textContent = subtitle;
     this._subtitle.hidden = !subtitle;

@@ -5,6 +5,7 @@
   "license": "ISC",
   "author": "Nelson Salles de Barros Filho",
   "type": "module",
+  "types": "./types.d.ts",
   "main": "index.js",
   "scripts": {
     "test": "jest",

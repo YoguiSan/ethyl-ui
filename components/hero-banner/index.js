@@ -1,4 +1,8 @@
-import { defineCustomElement } from '../../utils/elements';
+import {
+  defineCustomElement,
+  initializeAndRender,
+  renderIfConnected
+} from '../../utils/elements';
 import './_hero-banner.scss';
 
 class EUIHeroBanner extends HTMLElement {
@@ -22,19 +26,14 @@ class EUIHeroBanner extends HTMLElement {
   }
 
   connectedCallback() {
-    if (!this._initialized) {
+    initializeAndRender(this, () => {
       this._setupStructure();
       this._bindEvents();
-      this._initialized = true;
-    }
-
-    this.render();
+    });
   }
 
   attributeChangedCallback() {
-    if (this.isConnected) {
-      this.render();
-    }
+    renderIfConnected(this);
   }
 
   get cta() {

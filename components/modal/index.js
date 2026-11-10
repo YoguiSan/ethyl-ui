@@ -1,4 +1,8 @@
-import { defineCustomElement } from '../../utils/elements';
+import {
+  defineCustomElement,
+  initializeAndRender,
+  renderIfConnected
+} from '../../utils/elements';
 import './_modal.scss';
 
 class EUIModal extends HTMLElement {
@@ -22,13 +26,10 @@ class EUIModal extends HTMLElement {
   }
 
   connectedCallback() {
-    if (!this._initialized) {
+    initializeAndRender(this, () => {
       this._setupStructure();
       this._bindEvents();
-      this._initialized = true;
-    }
-
-    this.render();
+    });
     document.addEventListener('keydown', this._handleEscape);
   }
 
@@ -37,9 +38,7 @@ class EUIModal extends HTMLElement {
   }
 
   attributeChangedCallback() {
-    if (this.isConnected) {
-      this.render();
-    }
+    renderIfConnected(this);
   }
 
   get open() {

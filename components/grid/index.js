@@ -1,4 +1,4 @@
-import { createElement } from '../../utils/elements';
+import { createElement, renderIfConnected } from '../../utils/elements';
 import './_grid.scss';
 
 class EUIGrid extends HTMLElement {
@@ -24,9 +24,7 @@ class EUIGrid extends HTMLElement {
   }
 
   attributeChangedCallback() {
-    if (this.isConnected) {
-      this.render();
-    }
+    renderIfConnected(this);
   }
 
   _setCssVariable(name, value) {

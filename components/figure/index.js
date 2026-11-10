@@ -1,4 +1,8 @@
-import { defineCustomElement } from '../../utils/elements';
+import {
+  defineCustomElement,
+  initializeAndRender,
+  renderIfConnected
+} from '../../utils/elements';
 import './_figure.scss';
 
 class EUIFigure extends HTMLElement {
@@ -16,18 +20,13 @@ class EUIFigure extends HTMLElement {
   }
 
   connectedCallback() {
-    if (!this._initialized) {
+    initializeAndRender(this, () => {
       this._setupStructure();
-      this._initialized = true;
-    }
-
-    this.render();
+    });
   }
 
   attributeChangedCallback() {
-    if (this.isConnected) {
-      this.render();
-    }
+    renderIfConnected(this);
   }
 
   _setupStructure() {

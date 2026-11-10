@@ -1,4 +1,8 @@
-import { defineCustomElement } from '../../utils/elements';
+import {
+  defineCustomElement,
+  initializeAndRender,
+  renderIfConnected
+} from '../../utils/elements';
 import './_button.scss';
 
 class EUIButton extends HTMLElement {
@@ -15,18 +19,13 @@ class EUIButton extends HTMLElement {
   }
 
   connectedCallback() {
-    if (!this._initialized) {
+    initializeAndRender(this, () => {
       this._setupStructure();
-      this._initialized = true;
-    }
-
-    this.render();
+    });
   }
 
   attributeChangedCallback() {
-    if (this.isConnected) {
-      this.render();
-    }
+    renderIfConnected(this);
   }
 
   _setupStructure() {

@@ -1,4 +1,8 @@
-import { defineCustomElement } from '../../utils/elements';
+import {
+  defineCustomElement,
+  initializeAndRender,
+  renderIfConnected
+} from '../../utils/elements';
 import './_input.scss';
 
 class EUIInput extends HTMLElement {
@@ -31,13 +35,10 @@ class EUIInput extends HTMLElement {
   }
 
   connectedCallback() {
-    if (!this._initialized) {
+    initializeAndRender(this, () => {
       this._setupStructure();
       this._bindEvents();
-      this._initialized = true;
-    }
-
-    this.render();
+    });
   }
 
   attributeChangedCallback(name, oldValue, newValue) {
@@ -45,9 +46,7 @@ class EUIInput extends HTMLElement {
       this._input.value = newValue || '';
     }
 
-    if (this.isConnected) {
-      this.render();
-    }
+    renderIfConnected(this);
   }
 
   get value() {

@@ -19,8 +19,7 @@ class EUIHeroBanner extends HTMLElement {
     this._title = document.createElement('h1');
     this._subtitle = document.createElement('p');
     this._ctaWrapper = document.createElement('div');
-    this._ctaButton = document.createElement('button');
-    this._ctaLink = document.createElement('a');
+    this._ctaButton = document.createElement('eui-button');
     this._cta = undefined;
     this._initialized = false;
   }
@@ -64,8 +63,6 @@ class EUIHeroBanner extends HTMLElement {
     this._subtitle.className = 'eui-hero-banner__subtitle';
     this._ctaWrapper.className = 'eui-hero-banner__cta';
     this._ctaButton.className = 'eui-hero-banner__cta-control';
-    this._ctaButton.type = 'button';
-    this._ctaLink.className = 'eui-hero-banner__cta-control';
 
     this._content.append(
       this._callout,
@@ -78,9 +75,13 @@ class EUIHeroBanner extends HTMLElement {
   }
 
   _bindEvents() {
-    this._ctaButton.addEventListener('click', () => {
-      if (typeof this._getCta()?.action === 'function') {
-        this._getCta().action();
+    this._ctaButton.addEventListener('eui-click', () => {
+      const action = this._getCta()?.action;
+
+      if (typeof action === 'function') {
+        action();
+      } else if (typeof action === 'string' && this._isSafeUrl(action)) {
+        window.location.href = action;
       }
     });
   }
@@ -125,13 +126,7 @@ class EUIHeroBanner extends HTMLElement {
       return;
     }
 
-    if (typeof cta.action === 'function') {
-      this._ctaButton.textContent = cta.text;
-      this._ctaWrapper.appendChild(this._ctaButton);
-      return;
-    }
-
-    if (!this._isSafeUrl(cta.action)) {
+    if (typeof cta.action === 'string' && !this._isSafeUrl(cta.action)) {
       this.dispatchEvent(
         new CustomEvent('eui-hero-banner-error', {
           detail: { message: 'CTA action must be a safe navigable URL or a function.' },
@@ -142,9 +137,8 @@ class EUIHeroBanner extends HTMLElement {
       return;
     }
 
-    this._ctaLink.textContent = cta.text;
-    this._ctaLink.href = cta.action;
-    this._ctaWrapper.appendChild(this._ctaLink);
+    this._ctaButton.setAttribute('label', cta.text);
+    this._ctaWrapper.appendChild(this._ctaButton);
   }
 
   render() {

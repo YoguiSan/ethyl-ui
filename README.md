@@ -18,9 +18,9 @@ and background image can be provided as HTML attributes:
 ```
 
 `cta-action` is a navigation URL. For an in-page action, assign the `cta`
-property in JavaScript; function values are rendered as buttons, while string
-values are rendered as links. Unsafe URL schemes such as `javascript:` are
-rejected and emit an `eui-hero-banner-error` event.
+property in JavaScript; both URL and function actions use `<eui-button>`.
+Unsafe URL schemes such as `javascript:` are rejected and emit an
+`eui-hero-banner-error` event.
 
 ```js
 const banner = document.querySelector('eui-hero-banner');

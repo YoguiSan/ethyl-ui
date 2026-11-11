@@ -30,6 +30,32 @@ banner.cta = {
 };
 ```
 
+## Loading indicator
+
+Importing `ethyl-ui` registers `<eui-loading-indicator>`. It uses the package's
+default SVG and rotates by default; `width` is a pixel value.
+
+```html
+<eui-loading-indicator></eui-loading-indicator>
+<eui-loading-indicator animation="blinking" width="32"></eui-loading-indicator>
+<eui-loading-indicator
+  animation="none"
+  image="https://example.com/custom-loader.svg"
+  width="48"
+></eui-loading-indicator>
+```
+
+Set `animation` to `none`, `rotating`, or `blinking` (a one-second opacity
+pulse between 1 and 0.5). `image` accepts an image URL or a data URI, including
+a base64-encoded SVG.
+
+## TypeScript
+
+The package exposes its component attribute declarations through the `types`
+entry in `package.json`. React JSX applications can augment
+`react`'s `JSX.IntrinsicElements` with the exported `JSX.IntrinsicElements`
+type while retaining the standard React HTML attributes.
+
 # Getting Started
 TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
 1.	Installation process

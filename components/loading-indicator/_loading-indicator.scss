@@ -1,0 +1,47 @@
+eui-loading-indicator {
+  display: inline-flex;
+  vertical-align: middle;
+
+  .eui-loading-indicator {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+  }
+
+  .eui-loading-indicator__image {
+    display: block;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .animation-rotating .eui-loading-indicator__image {
+    animation: eui-loading-indicator--rotate 1s linear infinite;
+  }
+
+  .animation-blinking .eui-loading-indicator__image {
+    animation: eui-loading-indicator--blink 1s ease-in-out infinite;
+  }
+}
+
+@keyframes eui-loading-indicator--rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes eui-loading-indicator--blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  eui-loading-indicator .eui-loading-indicator__image {
+    animation: none;
+  }
+}

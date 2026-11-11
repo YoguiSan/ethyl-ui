@@ -15,6 +15,7 @@ export namespace JSX {
     'eui-grid': HTMLElement;
     'eui-hero-banner': EUIHeroBannerElement;
     'eui-input': HTMLElement;
+    'eui-loading-indicator': HTMLElement;
     'eui-modal': HTMLElement;
   }
 
@@ -84,6 +85,12 @@ export namespace JSX {
       color?: string;
       'font-color'?: string;
       fullwidth?: boolean;
+      children?: unknown;
+    };
+    'eui-loading-indicator': {
+      animation?: 'none' | 'rotating' | 'blinking';
+      image?: string;
+      width?: number | string;
       children?: unknown;
     };
     'eui-modal': {

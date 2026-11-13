@@ -17,6 +17,7 @@ export namespace JSX {
     'eui-input': HTMLElement;
     'eui-loading-indicator': HTMLElement;
     'eui-modal': HTMLElement;
+    'eui-toast': HTMLElement;
   }
 
   export interface IntrinsicElements {
@@ -96,6 +97,17 @@ export namespace JSX {
     'eui-modal': {
       title?: string;
       open?: boolean;
+      children?: unknown;
+    };
+    'eui-toast': {
+      text?: string;
+      type?: 'success' | 'warning' | 'info' | 'error' | 'critical';
+      timeout?: number | string;
+      'success-color'?: string;
+      'warning-color'?: string;
+      'info-color'?: string;
+      'error-color'?: string;
+      'critical-color'?: string;
       children?: unknown;
     };
   }

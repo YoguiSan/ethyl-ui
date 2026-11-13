@@ -1,0 +1,72 @@
+@use '../../assets/styles/_fonts.scss';
+
+eui-toast {
+  display: block;
+
+  &[hidden] {
+    display: none;
+  }
+
+  .eui-toast {
+    align-items: center;
+    background-color: var(--eui-toast-info-color, #164e8a);
+    border-radius: .4rem;
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    font-family: "Fira Sans", Montserrat, Nunito, Roboto, sans-serif;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: .8rem 1rem;
+  }
+
+  .eui-toast[data-type='success'] {
+    background-color: var(
+      --eui-toast-success-color,
+      var(--eui-toast-success-attribute-color, #238636)
+    );
+  }
+
+  .eui-toast[data-type='warning'] {
+    background-color: var(
+      --eui-toast-warning-color,
+      var(--eui-toast-warning-attribute-color, #b45309)
+    );
+  }
+
+  .eui-toast[data-type='info'] {
+    background-color: var(
+      --eui-toast-info-color,
+      var(--eui-toast-info-attribute-color, #164e8a)
+    );
+  }
+
+  .eui-toast[data-type='error'] {
+    background-color: var(
+      --eui-toast-error-color,
+      var(--eui-toast-error-attribute-color, #c62828)
+    );
+  }
+
+  .eui-toast[data-type='critical'] {
+    background-color: var(
+      --eui-toast-critical-color,
+      var(--eui-toast-critical-attribute-color, #c62828)
+    );
+  }
+
+  .eui-toast__message {
+    flex: 1;
+  }
+
+  .eui-toast__close {
+    background: transparent;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    font: inherit;
+    font-size: 1.4rem;
+    line-height: 1;
+    padding: 0;
+  }
+}

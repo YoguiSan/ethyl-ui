@@ -49,6 +49,40 @@ Set `animation` to `none`, `rotating`, or `blinking` (a one-second opacity
 pulse between 1 and 0.5). `image` accepts an image URL or a data URI, including
 a base64-encoded SVG.
 
+## Toast
+
+Importing `ethyl-ui` registers `<eui-toast>`. Set `text`, `type`, and
+`timeout` attributes to configure it. The timeout is in milliseconds and
+defaults to 5000; critical toasts do not time out. Every toast can be closed
+with its close button and emits `eui-toast-close` when closed.
+
+```html
+<eui-toast
+  text="Your changes were saved."
+  type="success"
+  timeout="4000"
+></eui-toast>
+
+<eui-toast text="An important alert." type="critical"></eui-toast>
+```
+
+Types are `success`, `warning`, `info`, `error`, and `critical`. Backgrounds
+default to green, dark orange, dark blue, and red (for both error types), with
+white text. Customize each type using its `*-color` attribute or the matching
+CSS custom property:
+
+```html
+<eui-toast
+  text="Custom success color"
+  type="success"
+  success-color="#146c43"
+></eui-toast>
+```
+
+The available CSS custom properties are `--eui-toast-success-color`,
+`--eui-toast-warning-color`, `--eui-toast-info-color`,
+`--eui-toast-error-color`, and `--eui-toast-critical-color`.
+
 ## TypeScript
 
 The package exposes its component attribute declarations through the `types`

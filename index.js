@@ -6,3 +6,4 @@ import './components/hero-banner';
 import './components/input';
 import './components/loading-indicator';
 import './components/modal';
+import './components/toast';
